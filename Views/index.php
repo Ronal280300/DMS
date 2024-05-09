@@ -59,6 +59,7 @@
     <script src="<?php echo BASE_URL . 'Assets/plugins/perfectscroll/perfect-scrollbar.min.js'; ?>"></script>
     <script src="<?php echo BASE_URL . 'Assets/plugins/pace/pace.min.js'; ?>"></script>
     <script src="<?php echo BASE_URL . 'Assets/js/main.min.js'; ?>"></script>
+    <script src="<?php echo BASE_URL . 'Assets/js/sweetalert2@11.js'; ?>"></script>
     <script src="<?php echo BASE_URL . 'Assets/js/custom.js'; ?>"></script>
 </body>
 </html>
