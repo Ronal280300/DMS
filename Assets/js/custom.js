@@ -7,6 +7,7 @@ function alertaPersonalizada(type,mensaje) {
         showConfirmButton: false,
         timer: 1500
       });
+      
 
 
 
