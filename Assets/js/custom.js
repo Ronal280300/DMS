@@ -1,4 +1,4 @@
-alertaPersonalizada('success','Mensaje de prueba')
+
 function alertaPersonalizada(type,mensaje) { 
     Swal.fire({
         position: "top-end",

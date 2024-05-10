@@ -38,18 +38,20 @@
             </div>
             <p class="auth-description">Bienvenido al sistema de gestor de archivos.</p>
 
+            <form id = "formulario" autocomplete = "off"  >
             <div class="auth-credentials m-b-xxl">
-                <label for="correo" class="form-label">Correo electrónico</label>
-                <input type="email" class="form-control m-b-md" id="correo" aria-describedby="correo" placeholder="example@example.com">
+                <label for="correo" class="form-label">Correo electrónico <span class = "text-danger">*</span></label>
+                <input type="email" class="form-control m-b-md" id = "correo" name = "correo" aria-describedby="correo" placeholder="example@example.com">
 
-                <label for="clave" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="clave" aria-describedby="clave" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
+                <label for="clave" class="form-label">Contraseña <span class = "text-danger">*</span></label>
+                <input type="password" class="form-control" id="clave" name = "clave" aria-describedby="clave" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
             </div>
 
             <div class="auth-submit">
-                <a href="#" class="btn btn-primary">Iniciar Sesión</a>
+                <button type = "submit" class="btn btn-primary">Iniciar Sesión</button>
                 <a href="#" class="auth-forgot-password float-end">Olvidó su contraseña?</a>
             </div>
+            </form>
         </div>
     </div>
     
@@ -61,5 +63,9 @@
     <script src="<?php echo BASE_URL . 'Assets/js/main.min.js'; ?>"></script>
     <script src="<?php echo BASE_URL . 'Assets/js/sweetalert2@11.js'; ?>"></script>
     <script src="<?php echo BASE_URL . 'Assets/js/custom.js'; ?>"></script>
+    <script>
+        const base_url = '<?php echo BASE_URL;?>';
+    </script>
+    <script src="<?php echo BASE_URL . 'Assets/js/pages/login.js'; ?>"></script>
 </body>
 </html>
