@@ -19,6 +19,7 @@ class Principal extends Controller
             if (password_verify($clave, $data['clave'])) {
                 $_SESSION ['id'] = $data['id'];
                 $_SESSION ['correo'] = $data['correo'];
+                $_SESSION ['nombre'] = $data['nombre'];
                 $res = array('tipo' => 'success', 'mensaje' => 'Bienvenido al DMS');
             } else {
                $res = array('tipo' => 'warning', 'mensaje' => 'Contraseña incorrecta');
@@ -30,6 +31,12 @@ class Principal extends Controller
         
         echo json_encode($res, JSON_UNESCAPED_UNICODE);
         die();
+    }
+
+    public function salir()
+    {
+        session_destroy();
+        header('Location: ' . BASE_URL);
     }
 }
 
