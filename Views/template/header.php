@@ -46,7 +46,11 @@
                         Apps
                     </li>
                     <li class="active-page">
-                        <a href="index.html" class="active"><i class="material-icons-two-tone">dashboard</i>Dashboard</a>
+                        <a href="<?php echo BASE_URL . 'usuarios'; ?>" class="active">
+                        <i class="material-icons">
+                            people_alt
+                        </i>Usuarios
+                    </a>
                     </li>
                     <li>
                         <a href="mailbox.html"><i class="material-icons-two-tone">inbox</i>Mailbox<span class="badge rounded-pill badge-danger float-end">87</span></a>
