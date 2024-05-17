@@ -8,7 +8,11 @@
                                 </div>
                             </div>
                           <div class="col-md-12">
-                          <button class="btn btn-outline-primary mb-3" id="btnNuevo" type="button" >Nuevo</button>
+                          <button class="btn btn-outline-primary mb-3" id="btnNuevo" type="button">
+                             <i class="material-icons">
+                                add
+                            </i>
+                            Nuevo</button>
                             <div class="card">
                                 <div class="card-body">                                
                                 <div class="table-responsive">
@@ -52,7 +56,7 @@
                     <div class="input-group">
                 <span class="input-group-text">
                     <i class="material-icons">
-                    list
+                    sentiment_very_satisfied
                     </i>
             </span> 
                     <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Nombre">
@@ -63,28 +67,24 @@
                     <div class="input-group">
                 <span class="input-group-text">
                     <i class="material-icons">
-                    list
+                    sentiment_satisfied
                     </i>
                 </span> 
                     <input class="form-control" type="text" id="apellido" name="apellido" placeholder="Apellidos">
                 </div>
                     </div>
 
-
                     <div class="col-md-6">
                         <label for="correo">Correo</label>
                     <div class="input-group">
                 <span class="input-group-text">
                     <i class="material-icons">
-                    email
+                    mail_outline
                     </i>
                 </span> 
-                    <input class="form-control" type="text" id="correo" name="correo" placeholder="Correo">
+                    <input class="form-control" type="email" id="correo" name="correo" placeholder="Correo">
                 </div>
                     </div>
-
-
-
 
                     <div class="col-md-6">
                         <label for="telefono">Teléfono</label>
@@ -94,15 +94,11 @@
                     phone
                     </i>
                 </span> 
-                    <input class="form-control" type="text" id="telefono" name="telefono" placeholder="Teléfono">
+                    <input class="form-control" type="number" id="telefono" name="telefono" placeholder="Teléfono">
                 </div>
                     </div>
 
-
-
-
-
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <label for="direccion">Dirección</label>
                     <div class="input-group">
                 <span class="input-group-text">
@@ -114,14 +110,12 @@
                 </div>
                     </div>
 
-
-
                     <div class="col-md-6">
                         <label for="clave">Clave</label>
                     <div class="input-group">
                 <span class="input-group-text">
                     <i class="material-icons">
-                    key
+                    password
                     </i>
                 </span> 
                     <input class="form-control" type="password" id="clave" name="clave" placeholder="Contraseña">
@@ -133,7 +127,7 @@
                     <div class="input-group">
                 <span class="input-group-text">
                     <i class="material-icons">
-                    person
+                    supervisor_account
                     </i>
                 </span> 
                 <select name="rol" id="rol" class="form-control">
@@ -145,9 +139,19 @@
 
                 </div>
                 </div>
+                
                 <div class="modal-footer">
-                    <button class="btn btn-outline-primary" type="button">Registrar</button>
-                    <button class="btn btn-outline-danger" data-bs-dismiss="modal" type="button">Cancelar</button>
+                    <button class="btn btn-outline-primary" type="submit">
+                        <i class="material-icons">
+                            person_add
+                        </i>
+                        Registrar</button>
+
+                    <button class="btn btn-outline-danger" data-bs-dismiss="modal" type="button">
+                        <i class="material-icons">
+                            cancel
+                        </i>
+                        Cancelar</button>
                 </div>
             </form>
         </div>
