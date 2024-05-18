@@ -9,6 +9,27 @@ const modalRegistro = document.querySelector("#modalRegistro");
 const myModal = new bootstrap.Modal(modalRegistro);
 
 document.addEventListener("DOMContentLoaded", function () {
+  //CARGAR DATOS CON DATATABLES
+  $("#tblUsuarios").DataTable({
+    ajax: {
+      url: base_url + "usuarios/listar",
+      dataSrc: '',
+    },
+    columns: [
+      { data: "id" },
+      { data: "id" },
+      { data: "nombre" },
+      { data: "correo" },
+      { data: "telefono" },
+      { data: "direccion" },
+      { data: "perfil" },
+      { data: "fecha" },
+    ],
+    language: {
+      url : 'https://cdn.datatables.net/plug-ins/2.0.7/i18n/es-ES.json'
+    },
+    responsive: true
+  });
   btnNuevo.addEventListener("click", function () {
     title.textContent = "NUEVO USUARIO";
     myModal.show();
@@ -39,9 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
       http.send(data);
 
       http.onreadystatechange = function () {
-
         if (this.readyState == 4 && this.status == 200) {
-
           const res = JSON.parse(this.responseText);
           alertaPersonalizada(res.tipo, res.mensaje);
           if (res.tipo == "success") {

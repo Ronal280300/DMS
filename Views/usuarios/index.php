@@ -16,7 +16,7 @@
                             <div class="card">
                                 <div class="card-body">                                
                                 <div class="table-responsive">
-                               <table class="table table- striped table-hover"  style="width:100%;">
+                               <table class="table table- striped table-hover display nowrap"  style="width:100%;" id = "tblUsuarios">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -59,7 +59,7 @@
                     sentiment_very_satisfied
                     </i>
             </span> 
-                    <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Nombre">
+                    <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Nombre" required>
                 </div>
                     </div>
                     <div class="col-md-6">
@@ -70,7 +70,7 @@
                     sentiment_satisfied
                     </i>
                 </span> 
-                    <input class="form-control" type="text" id="apellido" name="apellido" placeholder="Apellidos">
+                    <input class="form-control" type="text" id="apellido" name="apellido" placeholder="Apellidos" required>
                 </div>
                     </div>
 
@@ -82,7 +82,7 @@
                     mail_outline
                     </i>
                 </span> 
-                    <input class="form-control" type="email" id="correo" name="correo" placeholder="Correo">
+                    <input class="form-control" type="email" id="correo" name="correo" placeholder="Correo" required>
                 </div>
                     </div>
 
@@ -94,7 +94,7 @@
                     phone
                     </i>
                 </span> 
-                    <input class="form-control" type="number" id="telefono" name="telefono" placeholder="Teléfono">
+                    <input class="form-control" type="number" id="telefono" name="telefono" placeholder="Teléfono" required>
                 </div>
                     </div>
 
@@ -106,7 +106,7 @@
                     location_on
                     </i>
                 </span> 
-                    <input class="form-control" type="text" id="direccion" name="direccion" placeholder="Dirección">
+                    <input class="form-control" type="text" id="direccion" name="direccion" placeholder="Dirección" required>
                 </div>
                     </div>
 
@@ -118,7 +118,7 @@
                     password
                     </i>
                 </span> 
-                    <input class="form-control" type="password" id="clave" name="clave" placeholder="Contraseña">
+                    <input class="form-control" type="password" id="clave" name="clave" placeholder="Contraseña" required>
                 </div>
                     </div>
 
@@ -130,7 +130,7 @@
                     supervisor_account
                     </i>
                 </span> 
-                <select name="rol" id="rol" class="form-control">
+                <select name="rol" id="rol" class="form-control" required>
                     <option value="1">Administrador</option>
                     <option value="2">Usuario</option>
                 </select>

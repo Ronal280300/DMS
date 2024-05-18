@@ -11,6 +11,7 @@
     <script src="<?php echo BASE_URL . 'Assets/plugins/apexcharts/apexcharts.min.js'; ?>"></script>
     <script src="<?php echo BASE_URL . 'Assets/js/main.min.js'; ?>"></script>
     <script src="<?php echo BASE_URL . 'Assets/js/sweetalert2@11.js'; ?>"></script>
+    <script src="<?php echo BASE_URL . 'Assets/plugins/DataTables/datatables.min.js'; ?>"></script>
     <script src="<?php echo BASE_URL . 'Assets/js/custom.js'; ?>"></script>
     <script>
         const base_url = '<?php echo BASE_URL; ?>';
