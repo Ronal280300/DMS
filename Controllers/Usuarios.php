@@ -14,9 +14,27 @@ class Usuarios extends Controller
         $this->views->getView( 'usuarios', 'index', $data );
     }
 
-    public function listar(){
+    public function listar() {
         $data = $this->model->getUsuarios();
-        echo json_encode($data, JSON_UNESCAPED_UNICODE);
+        for ( $i = 0; $i < count( $data );
+        $i++ ) {
+            if ( $data [ $i ][ 'id' ] == 1 ) {
+                $data[ $i ][ 'acciones' ] = 'SUPER ADMIN';
+            } else {
+                $data[ $i ][ 'acciones' ] =
+                '<div>
+                    <a href="#" class ="btn btn-info btn-sm">
+                        Editar
+                     </a>
+                    <a href="#" class = "btn btn-danger btn-sm" onclick = "eliminar('.$data[ $i ][ 'id' ].')">
+                        Eliminar
+                    </a>
+                 </div>';
+            }
+
+            $data[ $i ][ 'nombres' ] = $data[ $i ][ 'nombre' ] . ' ' . $data[ $i ][ 'apellido' ];
+        }
+        echo json_encode( $data, JSON_UNESCAPED_UNICODE );
         die();
     }
 
@@ -55,6 +73,18 @@ class Usuarios extends Controller
             } else {
                 $res = array( 'tipo' =>'warning', 'mensaje' => 'EL CORREO YA EXISTE' );
             }
+        }
+        echo json_encode( $res, JSON_UNESCAPED_UNICODE );
+        die();
+    }
+
+    public function delete( $id ) 
+ {
+        $data = $this->model->delete( $id );
+        if ( $data == 1 ) {
+            $res = array( 'tipo' => 'success', 'mensaje' => 'USUARIO ELIMINADO' );
+        } else {
+            $res = array( 'tipo' =>'warning', 'mensaje' => 'ERROR AL ELIMINAR' );
         }
         echo json_encode( $res, JSON_UNESCAPED_UNICODE );
         die();
