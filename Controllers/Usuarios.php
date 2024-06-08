@@ -83,7 +83,7 @@ class Usuarios extends Controller
 
                     if ( empty( $verificarTel ) ) {
                         $hash = password_hash( $clave, PASSWORD_DEFAULT );
-                        $data = $this->model->modificar( $nombre, $apellido, $correo, $telefono, $direccion, $hash, $rol );
+                        $data = $this->model->modificar( $nombre, $apellido, $correo, $telefono, $direccion, $rol, $id_usuario );
                         if ( $data == 1 ) {
                             $res = array( 'tipo' =>'success', 'mensaje' => 'USUARIO MODIFICADO' );
                         } else {

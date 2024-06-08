@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (res.tipo == "success") {
             frm.reset();
             myModal.hide();
+            tblUsuarios.ajax.reload();
           }
         }
       };
