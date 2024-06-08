@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   tblUsuarios = $("#tblUsuarios").DataTable({
     ajax: {
       url: base_url + "usuarios/listar",
-      dataSrc: '',
+      dataSrc: "",
     },
     columns: [
       { data: "acciones" },
@@ -28,13 +28,16 @@ document.addEventListener("DOMContentLoaded", function () {
       { data: "fecha" },
     ],
     language: {
-      url : 'https://cdn.datatables.net/plug-ins/2.0.7/i18n/es-ES.json'
+      url: "https://cdn.datatables.net/plug-ins/2.0.7/i18n/es-ES.json",
     },
     responsive: true,
-    order: [[1, 'desc']],
+    order: [[1, "desc"]],
   });
   btnNuevo.addEventListener("click", function () {
     title.textContent = "NUEVO USUARIO";
+    frm.id_usuario.value = "";
+    frm.reset();
+    frm.clave.removeAttribute("readonly");
     myModal.show();
   });
 
@@ -74,9 +77,42 @@ document.addEventListener("DOMContentLoaded", function () {
       };
     }
   });
-})
+});
 
 function eliminar(id) {
-  const url = base_url + 'usuarios/delete/' + id;
-  eliminarRegistro('DESEA ELIMINAR EL USUARIO', 'EL USUARIO NO SE ELIMINARÁ DE FORMA PERMANETE', 'ELIMINAR', url, tblUsuarios);
+  const url = base_url + "usuarios/delete/" + id;
+  eliminarRegistro(
+    "DESEA ELIMINAR EL USUARIO",
+    "EL USUARIO NO SE ELIMINARÁ DE FORMA PERMANETE",
+    "ELIMINAR",
+    url,
+    tblUsuarios
+  );
+}
+
+function editar(id) {
+  const http = new XMLHttpRequest();
+
+  const url = base_url + 'usuarios/editar/' + id;
+
+  http.open("GET", url, true);
+
+  http.send();
+
+  http.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      const res = JSON.parse(this.responseText);
+      title.textContent = "EDITAR USUARIO";
+      frm.id_usuario.value = res.id;
+      frm.nombre.value = res.nombre;
+      frm.apellido.value = res.apellido;
+      frm.correo.value = res.correo;
+      frm.telefono.value = res.telefono;
+      frm.direccion.value = res.direccion;
+      frm.clave.value = "0000000000";
+      frm.clave.setAttribute("readonly", "readonly");
+      frm.rol.value = res.rol;
+      myModal.show();
+    }
+  }
 }

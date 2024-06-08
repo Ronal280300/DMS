@@ -49,6 +49,7 @@
                 </button>
             </div>
             <form id="formulario" autocomplete="off">
+                <input type="hidden" id="id_usuario" name="id_usuario">
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-6">
@@ -145,7 +146,7 @@
                         <i class="material-icons">
                             person_add
                         </i>
-                        Registrar</button>
+                        Guardar</button>
 
                     <button class="btn btn-outline-danger" data-bs-dismiss="modal" type="button">
                         <i class="material-icons">
