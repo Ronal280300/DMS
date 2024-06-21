@@ -56,15 +56,10 @@ document.addEventListener("DOMContentLoaded", function () {
       alertaPersonalizada("warning", "TODOS LOS CAMPOS SON REQUERIDOS");
     } else {
       const data = new FormData(frm);
-
       const http = new XMLHttpRequest();
-
       const url = base_url + "usuarios/guardar";
-
       http.open("POST", url, true);
-
       http.send(data);
-
       http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
           const res = JSON.parse(this.responseText);
@@ -94,7 +89,7 @@ function eliminar(id) {
 function editar(id) {
   const http = new XMLHttpRequest();
 
-  const url = base_url + 'usuarios/editar/' + id;
+  const url = base_url + "usuarios/editar/" + id;
 
   http.open("GET", url, true);
 
@@ -115,5 +110,5 @@ function editar(id) {
       frm.rol.value = res.rol;
       myModal.show();
     }
-  }
+  };
 }
