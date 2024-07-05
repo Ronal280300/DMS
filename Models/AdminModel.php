@@ -14,7 +14,7 @@ class AdminModel extends Query {
 
     }
 
-    public function getVerificar( $item, $nombre, $id, $id_usuario )
+    public function getVerificar( $item, $nombre, $id_usuario, $id )
  {
         if ($id > 0) {
             $sql = "SELECT id FROM carpetas WHERE $item = '$nombre' AND id_usuario = $id_usuario AND id != $id AND estado = 1";
@@ -26,14 +26,14 @@ class AdminModel extends Query {
 
     public function crearcarpeta( $nombre, $id_usuario )
     {
-        $sql = 'INSERT INTO carpetas (nombre,id_usuario) VALUES (?,?)';
+        $sql = "INSERT INTO carpetas (nombre, id_usuario) VALUES (?,?)";
         $datos = array( $nombre, $id_usuario );
         return $this->insertar( $sql, $datos );
     }
 
     public function delete( $id )
     {
-        $sql = 'UPDATE carpetas SET estado = ? WHERE id = ?';
+        $sql = "UPDATE carpetas SET estado = ? WHERE id = ?";
         $datos = array( 0, $id );
         return $this->save( $sql, $datos );
     }
@@ -46,7 +46,7 @@ class AdminModel extends Query {
 
     public function modificar( $nombre, $apellido, $correo, $telefono, $direccion, $rol, $id )
     {
-        $sql = 'UPDATE usuarios SET nombre=?, apellido=?, correo=?, telefono=?, direccion=?, rol=? WHERE id =?';
+        $sql = "UPDATE usuarios SET nombre=?, apellido=?, correo=?, telefono=?, direccion=?, rol=? WHERE id =?";
         $datos = array( $nombre, $apellido, $correo, $telefono, $direccion, $rol, $id);
         return $this->save( $sql, $datos );
     }

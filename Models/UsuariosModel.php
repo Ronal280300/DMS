@@ -8,7 +8,7 @@ class UsuariosModel extends Query {
 
     public function getUsuarios()
  {
-        $sql = 'SELECT id, nombre, apellido, correo, telefono, direccion, clave, rol, perfil, fecha FROM usuarios WHERE estado = 1';
+        $sql = "SELECT id, nombre, apellido, correo, telefono, direccion, clave, rol, perfil, fecha FROM usuarios WHERE estado = 1";
 
         return $this->selectAll( $sql );
 
@@ -26,14 +26,14 @@ class UsuariosModel extends Query {
 
     public function registrar( $nombre, $apellido, $correo, $telefono, $direccion, $clave, $rol )
     {
-        $sql = 'INSERT INTO usuarios (nombre,apellido,correo,telefono,direccion,clave,rol) VALUES (?,?,?,?,?,?,?)';
+        $sql = "INSERT INTO usuarios (nombre,apellido,correo,telefono,direccion,clave,rol) VALUES (?,?,?,?,?,?,?)";
         $datos = array( $nombre, $apellido, $correo, $telefono, $direccion, $clave, $rol );
         return $this->insertar( $sql, $datos );
     }
 
     public function delete( $id )
     {
-        $sql = 'UPDATE usuarios SET estado = ? WHERE id = ?';
+        $sql = "UPDATE usuarios SET estado = ? WHERE id = ?";
         $datos = array( 0, $id );
         return $this->save( $sql, $datos );
     }
@@ -46,7 +46,7 @@ class UsuariosModel extends Query {
 
     public function modificar( $nombre, $apellido, $correo, $telefono, $direccion, $rol, $id )
     {
-        $sql = 'UPDATE usuarios SET nombre=?, apellido=?, correo=?, telefono=?, direccion=?, rol=? WHERE id =?';
+        $sql = "UPDATE usuarios SET nombre=?, apellido=?, correo=?, telefono=?, direccion=?, rol=? WHERE id =?";
         $datos = array( $nombre, $apellido, $correo, $telefono, $direccion, $rol, $id);
         return $this->save( $sql, $datos );
     }

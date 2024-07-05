@@ -33,14 +33,14 @@ document.addEventListener("DOMContentLoaded", function () {
       http.send(data);
       http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-          console.log(this.responseText);
 
-          //  const res = JSON.parse(this.responseText);
-          //  alertaPersonalizada(res.tipo, res.mensaje);
-          //  if (res.tipo == 'success') {
-          //frm.reset();
-          //myModal.hide();
-          //}
+            const res = JSON.parse(this.responseText);
+            alertaPersonalizada(res.tipo, res.mensaje);
+            if (res.tipo == 'success') {
+            setTimeout(() => {
+                window.location.reload();
+            }, 1500);
+          }
         }
       };
     }
