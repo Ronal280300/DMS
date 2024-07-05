@@ -1,4 +1,5 @@
 <?php include_once 'Views/template/header.php'?>
+
 <div class="container-fluid">
    <div class="row">
       <div class="col">
@@ -13,7 +14,7 @@
       </div>
    </div>
    <div class="section-description">
-      <h1>Groups</h1>
+      <h1>Carpetas</h1>
    </div>
    <div class="row">
       <div class="col-xl-4">
@@ -60,7 +61,7 @@
       </div>
    </div>
    <div class="section-description">
-      <h1>Recent Files</h1>
+      <h1>Archivos Recientes</h1>
    </div>
    <div class="row">
       <div class="col-xxl-6">
@@ -233,7 +234,7 @@
    <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
          <div class="modal-header">
-            <h5 class="modal-title" id="title">Gestiónes</h5>
+            <h5 class="modal-title" id="title">Gestión</h5>
             <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
             </button>
          </div>
@@ -257,7 +258,7 @@
             </button>
          </div>
          
-         <form action="frmCarpeta" autocomplete="off">
+         <form id="frmCarpeta" autocomplete="off">
             <div class="modal-body">
                 <div class="input-group">
                     <span class="input-group-text">

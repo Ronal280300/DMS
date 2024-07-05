@@ -16,9 +16,10 @@ class Admin extends Controller
   
     public function crearcarpeta()
     {
+       
         $nombre = $_POST['nombre'];
         if (empty($nombre)) {
-            $res = array( 'tipo' =>'warning', 'mensaje' => 'EL NOMBRE ES REQUERIDO' );
+            $res = array( 'tipo' =>'warning', 'mensaje' => 'SE REQUIERE DE UN NOMBRE' );
         } else {
             $data = $this->model->crearcarpeta($nombre, $this->id_usuario);
         }

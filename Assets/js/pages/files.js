@@ -21,10 +21,10 @@ document.addEventListener("DOMContentLoaded", function () {
     myModal1.show();
   });
 
-  frmCarpeta.addEventListener('submit', function(e) {
+  frmCarpeta.addEventListener("submit", function (e) {
     e.preventDefault();
     if (frmCarpeta.nombre.value == '') {
-      alertaPersonalizada('warning', 'EL CAMPO NOMBRE ES REQUERIDO');
+      alertaPersonalizada("warning", "EL CAMPO NOMBRE ES REQUERIDO");
     } else {
       const data = new FormData(frmCarpeta);
       const http = new XMLHttpRequest();
