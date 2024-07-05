@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('America/Costa_Rica');
 require_once 'Config/Config.php';
 $ruta = !empty( $_GET[ 'url' ] ) ? $_GET[ 'url' ] : 'principal/index';
 $array = explode( '/', $ruta );

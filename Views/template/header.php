@@ -21,7 +21,7 @@
 
     
     <!-- Theme Styles -->
-    <link href="<?php echo BASE_URL . 'Assets/css/main.min.css'; ?>" rel="stylesheet">
+    <link href="<?php echo BASE_URL . 'Assets/css/main.css'; ?>" rel="stylesheet">
     <link href="<?php echo BASE_URL . 'Assets/plugins/DataTables/datatables.min.css'; ?>" rel="stylesheet">
     <link href="<?php echo BASE_URL . 'Assets/css/custom.css'; ?>" rel="stylesheet">
 
@@ -32,7 +32,7 @@
     <div class="app align-content-stretch d-flex flex-wrap">
         <div class="app-sidebar">
             <div class="logo">
-                <a href="index.html" class="logo-icon"><span class="logo-text">Occidente</span></a>
+                <a href="#" class="logo-icon"><span class="logo-text">Occidente</span></a>
                 <div class="sidebar-user-switcher user-activity-online">
                     <a href="#">
                         <img src="<?php echo BASE_URL . 'Assets/images/logo.png'; ?>" >
