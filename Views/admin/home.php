@@ -227,7 +227,8 @@
             <div class="d-grid">
                <button type="button" id="btnNuevaCarpeta" class="btn btn-outline-primary m-r-xs"><i class="material-icons">folder</i>Nueva Carpeta</button> 
                <hr>
-               <button type="button" class="btn btn-outline-success m-r-xs"><i class="material-icons">upload_file</i>Cargar Archivo</button> 
+               <input type="file" id="file" class="d-none" name="file">
+               <button type="button" id="btnSubirArchivo" class="btn btn-outline-success m-r-xs"><i class="material-icons">upload_file</i>Cargar Archivo</button> 
             </div>
          </div>
       </div>

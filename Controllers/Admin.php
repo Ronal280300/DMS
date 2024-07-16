@@ -12,31 +12,33 @@ class Admin extends Controller
 
     public function index()
  {
-        $data['title'] = 'Panel de administración';
-        $data['script'] = 'files.js';
-        $carpetas = $this->model->getCarpetas($this->id_usuario);
-   
-        for ($i=0; $i < count($carpetas); $i++) { 
+        $data[ 'title' ] = 'Panel de administración';
+        $data[ 'script' ] = 'files.js';
+        $carpetas = $this->model->getCarpetas( $this->id_usuario );
+
+        for ( $i = 0; $i < count( $carpetas );
+        $i++ ) {
+
             $carpetas[ $i ][ 'color' ] = substr( md5( $carpetas[ $i ][ 'id' ] ), 0, 6 );
             $carpetas[ $i ][ 'fecha' ] = $this->time_ago( strtotime( $carpetas[ $i ][ 'fecha_create' ] ) );
-            $carpetas[$i]['fecha'] = $this->time_ago(strtotime($carpetas[$i]['fecha_create']));
+            $carpetas[ $i ][ 'fecha' ] = $this->time_ago( strtotime( $carpetas[ $i ][ 'fecha_create' ] ) );
         }
-        $data['carpetas'] = $carpetas;
+        $data[ 'carpetas' ] = $carpetas;
         $this->views->getView( 'admin', 'home', $data );
     }
 
     public function crearcarpeta()
-    {
+ {
 
         $nombre = $_POST[ 'nombre' ];
         if ( empty( $nombre ) ) {
             $res = array( 'tipo' =>'warning', 'mensaje' => 'SE REQUIERE DE UN NOMBRE' );
         } else {
             //Verificar el nombre
-            $verificarNom = $this->model->getVerificar('nombre', $nombre, $this->id_usuario, 0 );
+            $verificarNom = $this->model->getVerificar( 'nombre', $nombre, $this->id_usuario, 0 );
 
             if ( empty( $verificarNom ) ) {
-                $data = $this->model->crearcarpeta( $nombre, $this->id_usuario);
+                $data = $this->model->crearcarpeta( $nombre, $this->id_usuario );
                 if ( $data > 0 ) {
                     $res = array( 'tipo' =>'success', 'mensaje' => 'CARPETA CREADA' );
                 } else {
@@ -45,16 +47,32 @@ class Admin extends Controller
             } else {
                 $res = array( 'tipo' =>'warning', 'mensaje' => 'LA CARPETA YA EXISTE' );
             }
-            
+
         }
         echo json_encode( $res, JSON_UNESCAPED_UNICODE );
-            die();
+        die();
 
     }
 
-    function time_ago ($fecha){
+    public function subirarchivo()
+    {
+        $archivo = $_FILES['file'];
+        $name = $archivo['name'];
+        $tmp = $archivo['tmp_name'];
+        $tipo = $archivo['type'];
+        $data = $this->model->subirArchivo($name, $tipo, 1);
+        if ( $data > 0 ) {
+            $res = array( 'tipo' =>'success', 'mensaje' => 'ARCHIVO CARGADO' );
+        } else {
+            $res = array( 'tipo' =>'error', 'mensaje' => 'ERROR AL CARGAR ARCHIVO' );
+        }
+        echo json_encode( $res, JSON_UNESCAPED_UNICODE );
+        die();
+    }
+
+    function time_ago ( $fecha ) {
         $diferencia = time() - $fecha;
-        if ($diferencia < 1) {
+        if ( $diferencia < 1 ) {
             return 'Justo ahora';
         }
         $condicion = array(
@@ -65,12 +83,12 @@ class Admin extends Controller
             60 => 'minuto',
             1 => 'segundo'
         );
-        foreach ($condicion as $secs => $str) {
+        foreach ( $condicion as $secs => $str ) {
             $d = $diferencia / $secs;
-            if ($d >= 1) {
+            if ( $d >= 1 ) {
                 //redondear
-                $t = round($d);
-                return 'hace ' . $t. ' ' .$str. ($t > 1 ? 's' : '');
+                $t = round( $d );
+                return 'hace ' . $t. ' ' .$str. ( $t > 1 ? 's' : '' );
             }
         }
     }
