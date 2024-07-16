@@ -1,5 +1,5 @@
 <?php
-const BASE_URL = "http://localhost/DMS/DMS/";
+const BASE_URL = "http://localhost/DMS/";
 const HOST = "localhost";
 const USER = "root";
 const PASS = "";
