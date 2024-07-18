@@ -65,13 +65,13 @@ document.addEventListener('DOMContentLoaded', function () {
     http.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         console.log(this.responseText);
-        //const res = JSON.parse(this.responseText);
-        //alertaPersonalizada(res.tipo, res.mensaje);
-        //if (res.tipo == 'success') {
-          //setTimeout(() => {
-            //window.location.reload();
-          //}, 1500);
-        //}
+        const res = JSON.parse(this.responseText);
+        alertaPersonalizada(res.tipo, res.mensaje);
+        if (res.tipo == 'success') {
+          setTimeout(() => {
+            window.location.reload();
+          }, 1500);
+        }
       }
     };
   })

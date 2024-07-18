@@ -15,6 +15,7 @@ class Admin extends Controller
         $data[ 'title' ] = 'Panel de administración';
         $data[ 'script' ] = 'files.js';
         $carpetas = $this->model->getCarpetas( $this->id_usuario );
+        $data['archivos'] = $this->model->getArchivos( $this->id_usuario );
 
         for ( $i = 0; $i < count( $carpetas );
         $i++ ) {

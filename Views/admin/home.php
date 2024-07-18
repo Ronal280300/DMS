@@ -47,14 +47,15 @@
             <h1>Archivos Recientes</h1>
          </div>
          <div class="row">
-            <div class="col-xxl-6">
+            <?php foreach ($data['archivos'] as $archivo){ ?>
+
+            <div class="col-md-6">
                <div class="card file-manager-recent-item">
                   <div class="card-body">
                      <div class="d-flex align-items-center">
                         <i class="material-icons-outlined text-danger align-middle m-r-sm">description</i>
-                        <a href="#" class="file-manager-recent-item-title flex-fill">design-components.pdf</a>
-                        <span class="p-h-sm">167kb</span>
-                        <span class="p-h-sm text-muted">09.14.21</span>
+                        <a href="#" class="file-manager-recent-item-title flex-fill"><?php echo $archivo['nombre'];?></a>
+                        <span class="p-h-sm text-muted"><?php echo $archivo['fecha_create'];?></span>
                         <a href="#" class="dropdown-toggle file-manager-recent-file-actions" id="file-manager-recent-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="file-manager-recent-1">
                            <li><a class="dropdown-item" href="#">Share</a></li>
@@ -64,153 +65,8 @@
                      </div>
                   </div>
                </div>
-               <div class="card file-manager-recent-item">
-                  <div class="card-body">
-                     <div class="d-flex align-items-center">
-                        <i class="material-icons-outlined text-primary align-middle m-r-sm">code</i>
-                        <a href="#" class="file-manager-recent-item-title flex-fill">MainFragment.kt</a>
-                        <span class="p-h-sm">14kb</span>
-                        <span class="p-h-sm text-muted">09.03.21</span>
-                        <a href="#" class="dropdown-toggle file-manager-recent-file-actions" id="file-manager-recent-2" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="file-manager-recent-2">
-                           <li><a class="dropdown-item" href="#">Share</a></li>
-                           <li><a class="dropdown-item" href="#">Download</a></li>
-                           <li><a class="dropdown-item" href="#">Move to folder</a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-               <div class="card file-manager-recent-item">
-                  <div class="card-body">
-                     <div class="d-flex align-items-center">
-                        <i class="material-icons-outlined text-primary align-middle m-r-sm">code</i>
-                        <a href="#" class="file-manager-recent-item-title flex-fill">MainViewModel.kt</a>
-                        <span class="p-h-sm">72kb</span>
-                        <span class="p-h-sm text-muted">08.28.21</span>
-                        <a href="#" class="dropdown-toggle file-manager-recent-file-actions" id="file-manager-recent-3" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="file-manager-recent-3">
-                           <li><a class="dropdown-item" href="#">Share</a></li>
-                           <li><a class="dropdown-item" href="#">Download</a></li>
-                           <li><a class="dropdown-item" href="#">Move to folder</a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-               <div class="card file-manager-recent-item">
-                  <div class="card-body">
-                     <div class="d-flex align-items-center">
-                        <i class="material-icons-outlined text-danger align-middle m-r-sm">description</i>
-                        <a href="#" class="file-manager-recent-item-title flex-fill">Guidelines.pdf</a>
-                        <span class="p-h-sm">567kb</span>
-                        <span class="p-h-sm text-muted">08.26.21</span>
-                        <a href="#" class="dropdown-toggle file-manager-recent-file-actions" id="file-manager-recent-4" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="file-manager-recent-4">
-                           <li><a class="dropdown-item" href="#">Share</a></li>
-                           <li><a class="dropdown-item" href="#">Download</a></li>
-                           <li><a class="dropdown-item" href="#">Move to folder</a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-               <div class="card file-manager-recent-item">
-                  <div class="card-body">
-                     <div class="d-flex align-items-center">
-                        <i class="material-icons-outlined text-success align-middle m-r-sm">image</i>
-                        <a href="#" class="file-manager-recent-item-title flex-fill">background2.png</a>
-                        <span class="p-h-sm">2.8mb</span>
-                        <span class="p-h-sm text-muted">08.14.21</span>
-                        <a href="#" class="dropdown-toggle file-manager-recent-file-actions" id="file-manager-recent-5" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="file-manager-recent-5">
-                           <li><a class="dropdown-item" href="#">Share</a></li>
-                           <li><a class="dropdown-item" href="#">Download</a></li>
-                           <li><a class="dropdown-item" href="#">Move to folder</a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
             </div>
-            <div class="col-xxl-6">
-               <div class="card file-manager-recent-item">
-                  <div class="card-body">
-                     <div class="d-flex align-items-center">
-                        <i class="material-icons-outlined text-warning align-middle m-r-sm">lock</i>
-                        <a href="#" class="file-manager-recent-item-title flex-fill">app-info.zip</a>
-                        <span class="p-h-sm">1.2mb</span>
-                        <span class="p-h-sm text-muted">08.02.21</span>
-                        <a href="#" class="dropdown-toggle file-manager-recent-file-actions" id="file-manager-recent-6" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="file-manager-recent-6">
-                           <li><a class="dropdown-item" href="#">Share</a></li>
-                           <li><a class="dropdown-item" href="#">Download</a></li>
-                           <li><a class="dropdown-item" href="#">Move to folder</a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-               <div class="card file-manager-recent-item">
-                  <div class="card-body">
-                     <div class="d-flex align-items-center">
-                        <i class="material-icons-outlined text-primary align-middle m-r-sm">code</i>
-                        <a href="#" class="file-manager-recent-item-title flex-fill">ContactsViewModel.kt</a>
-                        <span class="p-h-sm">763kb</span>
-                        <span class="p-h-sm text-muted">07.26.21</span>
-                        <a href="#" class="dropdown-toggle file-manager-recent-file-actions" id="file-manager-recent-7" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="file-manager-recent-7">
-                           <li><a class="dropdown-item" href="#">Share</a></li>
-                           <li><a class="dropdown-item" href="#">Download</a></li>
-                           <li><a class="dropdown-item" href="#">Move to folder</a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-               <div class="card file-manager-recent-item">
-                  <div class="card-body">
-                     <div class="d-flex align-items-center">
-                        <i class="material-icons-outlined text-success align-middle m-r-sm">image</i>
-                        <a href="#" class="file-manager-recent-item-title flex-fill">avatar-xl.png</a>
-                        <span class="p-h-sm">5.6mb</span>
-                        <span class="p-h-sm text-muted">07.24.21</span>
-                        <a href="#" class="dropdown-toggle file-manager-recent-file-actions" id="file-manager-recent-8" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="file-manager-recent-8">
-                           <li><a class="dropdown-item" href="#">Share</a></li>
-                           <li><a class="dropdown-item" href="#">Download</a></li>
-                           <li><a class="dropdown-item" href="#">Move to folder</a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-               <div class="card file-manager-recent-item">
-                  <div class="card-body">
-                     <div class="d-flex align-items-center">
-                        <i class="material-icons-outlined text-success align-middle m-r-sm">image</i>
-                        <a href="#" class="file-manager-recent-item-title flex-fill">welcome-login.png</a>
-                        <span class="p-h-sm">1.2mb</span>
-                        <span class="p-h-sm text-muted">06.29.21</span>
-                        <a href="#" class="dropdown-toggle file-manager-recent-file-actions" id="file-manager-recent-9" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="file-manager-recent-9">
-                           <li><a class="dropdown-item" href="#">Share</a></li>
-                           <li><a class="dropdown-item" href="#">Download</a></li>
-                           <li><a class="dropdown-item" href="#">Move to folder</a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-               <div class="card file-manager-recent-item">
-                  <div class="card-body">
-                     <div class="d-flex align-items-center">
-                        <i class="material-icons-outlined text-danger align-middle m-r-sm">description</i>
-                        <a href="#" class="file-manager-recent-item-title flex-fill">Material Design Components</a>
-                        <span class="p-h-sm">142kb</span>
-                        <span class="p-h-sm text-muted">06.27.21</span>
-                        <a href="#" class="dropdown-toggle file-manager-recent-file-actions" id="file-manager-recent-10" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="file-manager-recent-10">
-                           <li><a class="dropdown-item" href="#">Share</a></li>
-                           <li><a class="dropdown-item" href="#">Download</a></li>
-                           <li><a class="dropdown-item" href="#">Move to folder</a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-            </div>
+            <?php }?>
          </div>
       </div>
    </div>
