@@ -17,8 +17,25 @@
             </div>
          </div>
          <div class="row">
+         <?php foreach ($data['carpetas'] as $carpeta) { ?>
+            <div class="col-md-4">
+               <div class="card file-manager-group">
+                  <div class="card-body d-flex align-items-center">
+                     <i class="material-icons" style="color: #<?php echo $carpeta['color']; ?>">folder</i>
+                     <div class="file-manager-group-info flex-fill">
+                        <a href="#" id= "<?php echo $carpeta['id']; ?>" class="file-manager-group-title carpetas"><?php echo $carpeta['nombre']; ?></a>
+                        <span class="file-manager-group-about"><?php echo $carpeta['fecha']; ?></span>
+                     </div>
+                  </div>
+               </div>            
+            </div>
+            <?php }?>
+         </div>
+         <div class="section-description">
+            <h1>Todos los Archivos</h1>
+         </div>
+         <div class="row">
             <?php foreach ($data['archivos'] as $archivo){ ?>
-
             <div class="col-md-6">
                <div class="card file-manager-recent-item">
                   <div class="card-body">
