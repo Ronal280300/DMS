@@ -63,6 +63,11 @@ class Admin extends Controller
         $tipo = $archivo['type'];
         $data = $this->model->subirArchivo($name, $tipo, 1);
         if ( $data > 0 ) {
+            $destino = 'Assets/archivos';
+            if (!file_exists($destino)) {
+                mkdir($destino);
+            }
+            move_uploaded_file($tmp, $destino . '/' . $name);
             $res = array( 'tipo' =>'success', 'mensaje' => 'ARCHIVO CARGADO' );
         } else {
             $res = array( 'tipo' =>'error', 'mensaje' => 'ERROR AL CARGAR ARCHIVO' );

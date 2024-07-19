@@ -54,7 +54,7 @@
                     </a>
                     </li>
                     <li>
-                        <a href="mailbox.html"><i class="material-icons-two-tone">inbox</i>Mailbox<span class="badge rounded-pill badge-danger float-end">87</span></a>
+                        <a href="mailbox.html"><i class="material-icons-two-tone">inbox</i>Compartidos<span class="badge rounded-pill badge-danger float-end"></span></a>
                     </li>
                     <li>
                         <a href="<?php echo BASE_URL . 'admin'; ?>"><i class="material-icons-two-tone">cloud_queue</i>Gestor de Archivos</a>
