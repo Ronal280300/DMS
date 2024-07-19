@@ -126,6 +126,8 @@
             <div class="modal-body">
                <input type="hidden" id="id_carpeta">
             <div class="d-grid">
+               <a href="#" id="btnVer" class="btn btn-outline-info m-r-xs"><i class="material-icons">folder_zip</i>Ver Carpeta</a> 
+               <hr>
                <button type="button" id="btnSubir" class="btn btn-outline-primary m-r-xs"><i class="material-icons">folder_zip</i>Cargar Archivo</button> 
                <hr>
                <button type="button" id="btnCompartir" class="btn btn-outline-success m-r-xs"><i class="material-icons">share</i>Compartir</button> 

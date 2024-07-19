@@ -15,7 +15,7 @@ class Admin extends Controller
         $data[ 'title' ] = 'Panel de administración';
         $data[ 'script' ] = 'files.js';
         $carpetas = $this->model->getCarpetas( $this->id_usuario );
-        $data['archivos'] = $this->model->getArchivos( $this->id_usuario );
+        $data['archivos'] = $this->model->getArchivosRecientes( $this->id_usuario );
 
         for ( $i = 0; $i < count( $carpetas );
         $i++ ) {
@@ -81,7 +81,17 @@ class Admin extends Controller
         die();
     }
 
-    function time_ago ( $fecha ) {
+    public function ver($id_carpeta)
+    {
+        $data[ 'title' ] = 'Lista de archivos';
+        //$data[ 'script' ] = 'files.js';
+        $data['archivos']= $this->model->getArchivos($id_carpeta, $this->id_usuario );
+        $this->views->getView( 'admin', 'archivos', $data );
+    }
+    
+
+    function time_ago ( $fecha ) 
+    {
         $diferencia = time() - $fecha;
         if ( $diferencia < 1 ) {
             return 'Justo ahora';
@@ -103,6 +113,5 @@ class Admin extends Controller
             }
         }
     }
-
 }
 

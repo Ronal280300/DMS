@@ -23,6 +23,9 @@ const id_carpeta = document.querySelector("#id_carpeta");
 const carpetas = document.querySelectorAll(".carpetas");
 const btnSubir = document.querySelector("#btnSubir");
 
+//ver
+const btnVer = document.querySelector("#btnVer");
+
 document.addEventListener("DOMContentLoaded", function () {
   btnUpload.addEventListener("click", function () {
     myModal.show();
@@ -98,5 +101,10 @@ document.addEventListener("DOMContentLoaded", function () {
     myModal2.hide();
     file.click();
   });
+
+  btnVer.addEventListener('click', function(){
+    window.location = base_url + 'admin/ver/' + id_carpeta.value;
+    
+  })
 
 });
