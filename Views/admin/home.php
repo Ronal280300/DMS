@@ -35,7 +35,7 @@
                   <div class="card-body d-flex align-items-center">
                      <i class="material-icons" style="color: #<?php echo $carpeta['color']; ?>">folder</i>
                      <div class="file-manager-group-info flex-fill">
-                        <a href="#" class="file-manager-group-title"><?php echo $carpeta['nombre']; ?></a>
+                        <a href="#" id= "<?php echo $carpeta['id']; ?>" class="file-manager-group-title carpetas"><?php echo $carpeta['nombre']; ?></a>
                         <span class="file-manager-group-about"><?php echo $carpeta['fecha']; ?></span>
                      </div>
                   </div>
@@ -111,6 +111,26 @@
                <button class="btn btn-primary" type="submit">Crear</button>
             </div>
          </form>
+      </div>
+   </div>
+</div>
+
+<div id="modalCompartir" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
+   <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="title-compartir"></h5>
+            <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            </button>
+         </div>
+            <div class="modal-body">
+               <input type="hidden" id="id_carpeta">
+            <div class="d-grid">
+               <button type="button" id="btnSubir" class="btn btn-outline-primary m-r-xs"><i class="material-icons">folder_zip</i>Cargar Archivo</button> 
+               <hr>
+               <button type="button" id="btnCompartir" class="btn btn-outline-success m-r-xs"><i class="material-icons">share</i>Compartir</button> 
+            </div>
+            </div>
       </div>
    </div>
 </div>

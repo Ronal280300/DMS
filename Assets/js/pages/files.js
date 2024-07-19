@@ -14,12 +14,21 @@ const frmCarpeta = document.querySelector("#frmCarpeta");
 const btnSubirArchivo = document.querySelector("#btnSubirArchivo");
 const file = document.querySelector("#file");
 
-document.addEventListener('DOMContentLoaded', function () {
-  btnUpload.addEventListener('click', function () {
+//capturamos el id del modal de la carpeta
+const modalCompartir = document.querySelector("#modalCompartir");
+//Se crea una instancia con el modal
+const myModal2 = new bootstrap.Modal(modalCompartir);
+const id_carpeta = document.querySelector("#id_carpeta");
+
+const carpetas = document.querySelectorAll(".carpetas");
+const btnSubir = document.querySelector("#btnSubir");
+
+document.addEventListener("DOMContentLoaded", function () {
+  btnUpload.addEventListener("click", function () {
     myModal.show();
   });
 
-  btnNuevaCarpeta.addEventListener('click', function () {
+  btnNuevaCarpeta.addEventListener("'click", function () {
     myModal.hide();
     myModal1.show();
   });
@@ -27,11 +36,11 @@ document.addEventListener('DOMContentLoaded', function () {
   frmCarpeta.addEventListener('submit', function (e) {
     e.preventDefault();
     if (frmCarpeta.nombre.value == "") {
-      alertaPersonalizada('warning', 'EL CAMPO NOMBRE ES REQUERIDO');
+      alertaPersonalizada("warning", "EL CAMPO NOMBRE ES REQUERIDO");
     } else {
       const data = new FormData(frmCarpeta);
       const http = new XMLHttpRequest();
-      const url = base_url + 'admin/crearcarpeta';
+      const url = base_url + "admin/crearcarpeta";
       http.open("POST", url, true);
       http.send(data);
       http.onreadystatechange = function () {
@@ -49,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   //Subir Archivos
-  btnSubirArchivo.addEventListener('click', function (e) {
+  btnSubirArchivo.addEventListener("click", function (e) {
     myModal.hide();
     file.click();
   });
@@ -57,9 +66,10 @@ document.addEventListener('DOMContentLoaded', function () {
   file.addEventListener('change', function (e) {
     console.log(e.target.files[0]);
     const data = new FormData();
+    data.append('id_carpeta', id_carpeta.value);
     data.append('file', e.target.files[0]);
     const http = new XMLHttpRequest();
-    const url = base_url + 'admin/subirarchivo';
+    const url = base_url + "admin/subirarchivo";
     http.open("POST", url, true);
     http.send(data);
     http.onreadystatechange = function () {
@@ -74,5 +84,19 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
     };
-  })
-})
+  });
+
+  carpetas.forEach((carpeta) => {
+    carpeta.addEventListener("click", function (e) {
+      id_carpeta.value = e.target.id;
+      myModal2.show();
+    });
+  });
+
+   //Subir Archivos
+   btnSubir.addEventListener("click", function (e) {
+    myModal2.hide();
+    file.click();
+  });
+
+});
