@@ -1,7 +1,7 @@
 <?php include_once 'Views/template/header.php'?>
 
 <div class="app-content">
-    <?php include_once 'Views/template/menus.php'?>
+    <?php include_once 'Views/components/menus.php'?>
    <div class="content-wrapper">
       <div class="container-fluid">
          <div class="row">
@@ -42,4 +42,7 @@
    </div>
 </div>
 
-<?php include_once 'Views/template/footer.php'?>
+<?php
+ include_once 'Views/components/modal.php';
+ include_once 'Views/template/footer.php';
+ ?>

@@ -27,11 +27,11 @@ const btnSubir = document.querySelector("#btnSubir");
 const btnVer = document.querySelector("#btnVer");
 
 document.addEventListener("DOMContentLoaded", function () {
-  btnUpload.addEventListener("click", function () {
+  btnUpload.addEventListener('click', function () {
     myModal.show();
   });
 
-  btnNuevaCarpeta.addEventListener("'click", function () {
+  btnNuevaCarpeta.addEventListener('click', function () {
     myModal.hide();
     myModal1.show();
   });
@@ -43,14 +43,14 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       const data = new FormData(frmCarpeta);
       const http = new XMLHttpRequest();
-      const url = base_url + "admin/crearcarpeta";
+      const url = base_url + 'admin/crearcarpeta';
       http.open("POST", url, true);
       http.send(data);
       http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
           const res = JSON.parse(this.responseText);
           alertaPersonalizada(res.tipo, res.mensaje);
-          if (res.tipo == "success") {
+          if (res.tipo == 'success') {
             setTimeout(() => {
               window.location.reload();
             }, 1500);

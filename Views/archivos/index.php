@@ -1,7 +1,7 @@
-<?php include_once 'Views/template/header.php'?>
+<?php include_once 'Views/template/header.php';?>
 
 <div class="app-content">
-    <?php include_once 'Views/template/menus.php'?>
+    <?php include_once 'Views/components/menus.php';?>
    <div class="content-wrapper">
       <div class="container-fluid">
          <div class="row">
@@ -32,7 +32,7 @@
             <?php }?>
          </div>
          <div class="section-description">
-            <h1>Todos los Archivos</h1>
+            <h1>Todos los archivos</h1>
          </div>
          <div class="row">
             <?php foreach ($data['archivos'] as $archivo){ ?>
@@ -59,4 +59,7 @@
    </div>
 </div>
 
-<?php include_once 'Views/template/footer.php'?>
+<?php
+ include_once 'Views/components/modal.php';
+ include_once 'Views/template/footer.php';
+ ?>
