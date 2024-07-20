@@ -49,8 +49,8 @@
             <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
             </button>
          </div>
-            <div class="modal-body">
-               <input type="hidden" id="id_carpeta">
+         <div class="modal-body">
+            <input type="hidden" id="id_carpeta">
             <div class="d-grid">
                <a href="#" id="btnVer" class="btn btn-outline-info m-r-xs"><i class="material-icons">folder_zip</i>Ver Carpeta</a> 
                <hr>
@@ -58,7 +58,29 @@
                <hr>
                <button type="button" id="btnCompartir" class="btn btn-outline-success m-r-xs"><i class="material-icons">share</i>Compartir</button> 
             </div>
-            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<div id="modalUsuarios" class="modal fade" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="title-usuarios">Agrega correos para compartir</h5>
+            <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            </button>
+         </div>
+        <form id="frmCompartir">
+        <div class="modal-body">
+            <input type="hidden" id="archivo" name="id_archivo">
+            <select class="js-states form-control" id="usuarios" name="usuarios[]" tabindex="-1" style="display: none; width: 100%" multiple="multiple">
+            </select>
+         </div>
+         <div class="modal-footer">
+            <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Cancelar</button>
+            <button class="btn btn-primary" type="submit">Compartir</button>
+         </div>
+        </form>
       </div>
    </div>
 </div>

@@ -22,6 +22,10 @@
         <li class="divider"></li>
         <li>
             <a href="#" 
+               class="<?php echo ($data['active'] == 'detail') ? 'active' : ''; ?>">
+               Detalle
+            </a>
+            <a href="#" 
                class="<?php echo ($data['active'] == 'share') ? 'active' : ''; ?>">
                Compartidos
             </a>
