@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (this.readyState == 4 && this.status == 200) {
         console.log(this.responseText);
         const res = JSON.parse(this.responseText);
-        let html = `<span class="mailbox-open-date">${res.fecha_add}</span>
+        let html = `<span class="mailbox-open-date">${res.fecha}</span>
                                 <h5 class="mailbox-open-title">
                                    Work together with better collaboration tools
                                 </h5>

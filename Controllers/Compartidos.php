@@ -22,6 +22,7 @@ class Compartidos extends Controller
     public function verDetalle($id_detalle)
     {
         $data = $this->model->getDetalle($id_detalle);
+        $data['fecha'] = time_ago(strtotime($data['fecha_add']));
         echo json_encode($data);
         die();
     }
