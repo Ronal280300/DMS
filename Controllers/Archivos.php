@@ -11,50 +11,59 @@ class Archivos extends Controller
     }
 
     public function index()
-    {
-        $data['title'] = 'Archivos';
-        $data['active'] = 'todos';
-        $data['script'] = 'files.js';
-        $data['archivos'] = $this->model->getArchivos( $this->id_usuario );
+ {
+        $data[ 'title' ] = 'Archivos';
+        $data[ 'active' ] = 'todos';
+        $data[ 'script' ] = 'files.js';
+        $data[ 'archivos' ] = $this->model->getArchivos( $this->id_usuario );
 
         $carpetas = $this->model->getCarpetas( $this->id_usuario );
-         for ( $i = 0; $i < count( $carpetas );
+        for ( $i = 0; $i < count( $carpetas );
         $i++ ) {
-            $carpetas[ $i ]['color'] = substr( md5( $carpetas[ $i ][ 'id' ] ), 0, 6 );
-            $carpetas[ $i ]['fecha'] = time_ago( strtotime( $carpetas[ $i ]['fecha_create'] ) );
+            $carpetas[ $i ][ 'color' ] = substr( md5( $carpetas[ $i ][ 'id' ] ), 0, 6 );
+            $carpetas[ $i ][ 'fecha' ] = time_ago( strtotime( $carpetas[ $i ][ 'fecha_create' ] ) );
         }
-        $data['carpetas'] = $carpetas;
+        $data[ 'carpetas' ] = $carpetas;
 
-
-        $this->views->getView('archivos', 'index', $data);
+        $this->views->getView( 'archivos', 'index', $data );
     }
 
     public function getUsuarios()
-    {
-        $valor = $_GET['q'];
-        $data = $this->model->getUsuarios($valor);
-        for ($i=0; $i < count($data); $i++) { 
-            $data[$i]['text'] = $data[$i]['correo'];
+ {
+        $valor = $_GET[ 'q' ];
+        $data = $this->model->getUsuarios( $valor );
+        for ( $i = 0; $i < count( $data );
+        $i++ ) {
+
+            $data[ $i ][ 'text' ] = $data[ $i ][ 'correo' ];
         }
-        echo json_encode($data);
+        echo json_encode( $data );
         die();
     }
 
     public function compartir()
-    {
-        $id_archivo = $_POST['id_archivo'];
-        $usuarios = $_POST['usuarios'];
+ {
+        $id_archivo = $_POST[ 'id_archivo' ];
+        $usuarios = $_POST[ 'usuarios' ];
         $res = 0;
-        for ($i=0; $i < count($usuarios); $i++) { 
-        $dato = $this->model->getUsuario($usuarios[$i]);
-        $res = $this->model->registrarDetalle($dato['correo'], $id_archivo,$this->id_usuario);
+        for ( $i = 0; $i < count( $usuarios );
+        $i++ ) {
+
+            $dato = $this->model->getUsuario( $usuarios[ $i ] );
+            $result = $this->model->getDetalle( $dato[ 'correo' ], $id_archivo );
+            if ( empty( $result ) ) {
+                $res = $this->model->registrarDetalle( $dato[ 'correo' ], $id_archivo, $this->id_usuario );
+            }else{
+                $res = 1;
+            }
+
         }
-        if ($res > 0) {
-            $res = array('tipo' => 'success', 'mensaje' => 'ARCHIVO COMPARTIDO');
+        if ( $res > 0 ) {
+            $res = array( 'tipo' => 'success', 'mensaje' => 'ARCHIVO COMPARTIDO' );
         } else {
-            $res = array('tipo' =>'error','mensaje' => 'ERROR AL COMPARTIR ARCHIVO');
+            $res = array( 'tipo' =>'error', 'mensaje' => 'ERROR AL COMPARTIR ARCHIVO' );
         }
-        echo json_encode($res);
+        echo json_encode( $res );
         die();
     }
 }
