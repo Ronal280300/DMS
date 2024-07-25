@@ -63,7 +63,7 @@
    </div>
 </div>
 <div id="modalUsuarios" class="modal fade" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
-   <div class="modal-dialog" role="document">
+   <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
          <div class="modal-header">
             <h5 class="modal-title" id="title-usuarios">Agrega correos para compartir</h5>
@@ -72,13 +72,27 @@
          </div>
         <form id="frmCompartir">
         <div class="modal-body">
-        <div id="container-archivos">
-               
-               </div>
-            <input type="hidden" id="archivo" value = "1" name="id_archivo">
+         <div id="container-archivos">
+            <input type="hidden" id="archivo" name="archivos[]">       
+         </div>
             <select class="js-states form-control" id="usuarios" name="usuarios[]" 
             tabindex="-1" style="display: none; width: 100%" multiple="multiple">
             </select>
+            <hr>
+           <div class="table-responsive" >
+            <table class="table table-striped" id="tblDetalle" style="width: 100%;">
+               <thead>
+                  <tr>
+                     <th>Archivo</th>
+                     <th>Usuario</th>
+                     <th></th>
+                  </tr>
+               </thead>
+               <tbody>
+                  
+               </tbody>
+            </table>
+           </div>
          </div>
          <div class="modal-footer">
             <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Cancelar</button>

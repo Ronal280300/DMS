@@ -37,6 +37,7 @@ const usuarios = document.querySelector("#usuarios");
 
 const btnCompartir = document.querySelector("#btnCompartir");
 const container_archivos = document.querySelector("#container-archivos");
+const tblDetalle = document.querySelector("#tblDetalle tbody");
 
 document.addEventListener("DOMContentLoaded", function () {
   btnUpload.addEventListener("click", function () {
@@ -151,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   frmCompartir.addEventListener("submit", function (e) {
     e.preventDefault();
-    if (id_archivo.value == "" || usuarios.value == "") {
+    if (usuarios.value == "") {
       alertaPersonalizada("warning", "SELECCIONE UN USUARIO");
     } else {
       const data = new FormData(frmCompartir);
@@ -162,21 +163,23 @@ document.addEventListener("DOMContentLoaded", function () {
       http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
           console.log(this.responseText);
-         // const res = JSON.parse(this.responseText);
-         // alertaPersonalizada(res.tipo, res.mensaje);
-         // if (res.tipo == "success") {
-         //   id_archivo.value = "";
-         //   $(".js-states").val(null).trigger("change");
-         //   myModalUs.hide();
-          //}
+          const res = JSON.parse(this.responseText);
+          alertaPersonalizada(res.tipo, res.mensaje);
+          if (res.tipo == "success") {
+            id_archivo.value = "";
+            $(".js-states").val(null).trigger("change");
+            myModalUs.hide();
+          }
         }
       };
     }
   });
+
   //COMPARTIR ARCHIVOS POR CARPETA
   btnCompartir.addEventListener("click", function () {
     verArchivos();
   });
+
 });
 
 function compartirArchivo(id) {
@@ -203,13 +206,38 @@ function verArchivos() {
                      </label>
                    </div>`;
         });
-        container_archivos.innerHTML = html;
+        cargarDetalle(id_carpeta.value);
       } else {
-        
+        html = `<div class="alert alert-danger alert-style-light" role="alert">
+             Carpeta vacía
+        </div>`;
       }
+      container_archivos.innerHTML = html;
       myModal2.hide();
       myModalUs.show();
     }
   };
 }
+function cargarDetalle(id_carpeta) {
+  $("#tblDetalle").DataTable({
+    ajax: {
+      url: base_url + "archivos/verDetalle/" + id_carpeta,
+      dataSrc: ''
+    },
+    columns: [
+      { data: 'nombre' },
+      { data: 'correo' },
+      { data: 'acciones' }
+    ],
+    language: {
+      url: "https://cdn.datatables.net/plug-ins/2.0.7/i18n/es-ES.json",
+    },
+    responsive: true,
+    "scrollY": "200px",
+    destroy: true,
+    order: [[1, "desc"]],
+  });
+  return; 
+}
+
 

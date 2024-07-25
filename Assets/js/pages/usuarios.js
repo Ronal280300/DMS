@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     responsive: true,
     order: [[1, "desc"]],
   });
+  
   btnNuevo.addEventListener("click", function () {
     title.textContent = "NUEVO USUARIO";
     frm.id_usuario.value = "";
