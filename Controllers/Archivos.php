@@ -43,28 +43,43 @@ class Archivos extends Controller
 
     public function compartir()
  {
-        $id_archivo = $_POST[ 'id_archivo' ];
-        $usuarios = $_POST[ 'usuarios' ];
-        $res = 0;
-        for ( $i = 0; $i < count( $usuarios );
-        $i++ ) {
+        $usuarios = $_POST['usuarios' ];
+        if ( empty($_POST['archivos'])){
+            $res = array( 'tipo' => 'warning', 'mensaje' => 'SELECCIONE UN ARCHIVO' );
+        } else {
+            $archivos = $_POST['archivos'];
+            $res = 0;
+            for ($i = 0; $i < count($archivos); $i++ ) {
+                for ( $j = 0; $j < count($usuarios);$j++ ) {
+                    $dato = $this->model->getUsuario( $usuarios[$j]);
+                    $result = $this->model->getDetalle( $dato['correo'], $archivos[$i]);
+                    if ( empty($result)){
+                        $res = $this->model->registrarDetalle( $dato['correo'], $archivos[$i], 
+                        $this->id_usuario );
+                    } else {
+                        $res = 1;
+                    }
 
-            $dato = $this->model->getUsuario( $usuarios[ $i ] );
-            $result = $this->model->getDetalle( $dato[ 'correo' ], $id_archivo );
-            if ( empty( $result ) ) {
-                $res = $this->model->registrarDetalle( $dato[ 'correo' ], $id_archivo, $this->id_usuario );
-            }else{
-                $res = 1;
+                }
+            }
+            if ( $res > 0 ) {
+                $res = array( 'tipo' => 'success', 'mensaje' => 'ARCHIVOS COMPARTIDOS' );
+            } else {
+                $res = array( 'tipo' =>'error', 'mensaje' => 'ERROR AL COMPARTIR ARCHIVOS' );
             }
 
-        }
-        if ( $res > 0 ) {
-            $res = array( 'tipo' => 'success', 'mensaje' => 'ARCHIVO COMPARTIDO' );
-        } else {
-            $res = array( 'tipo' =>'error', 'mensaje' => 'ERROR AL COMPARTIR ARCHIVO' );
         }
         echo json_encode( $res );
         die();
     }
+
+    public function verArchivos ( $id_carpeta )
+ {
+        $data = $this->model->getArchivosCarpeta( $id_carpeta );
+        echo json_encode( $data, JSON_UNESCAPED_UNICODE );
+        die();
+
+    }
+
 }
 

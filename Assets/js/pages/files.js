@@ -32,9 +32,11 @@ const compartir = document.querySelectorAll(".compartir");
 const modalUsuarios = document.querySelector("#modalUsuarios");
 const myModalUs = new bootstrap.Modal(modalUsuarios);
 const id_archivo = document.querySelector("#archivo");
-
 const frmCompartir = document.querySelector("#frmCompartir");
 const usuarios = document.querySelector("#usuarios");
+
+const btnCompartir = document.querySelector("#btnCompartir");
+const container_archivos = document.querySelector("#container-archivos");
 
 document.addEventListener("DOMContentLoaded", function () {
   btnUpload.addEventListener("click", function () {
@@ -154,22 +156,26 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       const data = new FormData(frmCompartir);
       const http = new XMLHttpRequest();
-      const url = base_url + 'archivos/compartir';
+      const url = base_url + "archivos/compartir";
       http.open("POST", url, true);
       http.send(data);
       http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
           console.log(this.responseText);
-          const res = JSON.parse(this.responseText);
-          alertaPersonalizada(res.tipo, res.mensaje);
-          if (res.tipo == 'success') {
-            id_archivo.value = '';
-            $('.js-states').val(null).trigger('change');
-            myModalUs.hide();
-          }
+         // const res = JSON.parse(this.responseText);
+         // alertaPersonalizada(res.tipo, res.mensaje);
+         // if (res.tipo == "success") {
+         //   id_archivo.value = "";
+         //   $(".js-states").val(null).trigger("change");
+         //   myModalUs.hide();
+          //}
         }
       };
     }
+  });
+  //COMPARTIR ARCHIVOS POR CARPETA
+  btnCompartir.addEventListener("click", function () {
+    verArchivos();
   });
 });
 
@@ -177,3 +183,33 @@ function compartirArchivo(id) {
   id_archivo.value = id;
   myModalUs.show();
 }
+
+function verArchivos() {
+  const http = new XMLHttpRequest();
+  const url = base_url + "archivos/verArchivos/" + id_carpeta.value;
+  http.open("GET", url, true);
+  http.send();
+  http.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      const res = JSON.parse(this.responseText);
+      let html = '';
+      if (res.length > 0) {
+        res.forEach(archivo => {
+          html += `<div class="form-check">
+                     <input class="form-check-input" type="checkbox" value = "${archivo.id}" name = "archivos[]" 
+                     id="flexCheckDefault_${archivo.id}">
+                     <label class="form-check-label" for="flexCheckDefault_${archivo.id}">
+                       ${archivo.nombre}
+                     </label>
+                   </div>`;
+        });
+        container_archivos.innerHTML = html;
+      } else {
+        
+      }
+      myModal2.hide();
+      myModalUs.show();
+    }
+  };
+}
+
