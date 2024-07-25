@@ -28,6 +28,7 @@
                         </div>
                      </div>
                   </div>
+
                   <button type="button" class="btn btn-primary btn-burger mailbox-compose-btn" data-bs-toggle="modal" data-bs-target="#composeModal"><i class="material-icons-outlined">create</i></button>     
                   <div class="card">
                      <div class="container-fluid">
@@ -39,141 +40,13 @@
                                        <div class="form-check form-check-inline">
                                           <input class="form-check-input" type="checkbox" value="">
                                        </div>
-                                       <img src="../../assets/images/avatars/avatar.png" alt="">
+                                       <img src="<?php echo BASE_URL . 'Assets/images/logo.png';?>" alt="">
                                        <div class="mailbox-list-item-content">
                                           <span class="mailbox-list-item-title">
                                           Oskar Hudson
                                           </span>
                                           <p class="mailbox-list-item-text">
                                              Aliquam eget lectus viverra, maximus massa nec, ultricies tellus. Morbi non massa urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                                          </p>
-                                       </div>
-                                    </a>
-                                 </li>
-                                 <li class="mailbox-list-item">
-                                    <a href="#">
-                                       <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="checkbox" value="">
-                                       </div>
-                                       <img src="../../assets/images/avatars/avatar.png" alt="">
-                                       <div class="mailbox-list-item-content">
-                                          <span class="mailbox-list-item-title">
-                                          Woodrow Hawkins
-                                          </span>
-                                          <p class="mailbox-list-item-text">
-                                             Nunc a mauris vel magna pharetra tempor mollis quis risus. Nullam vitae lorem eget ligula euismod cursus at sed dui
-                                          </p>
-                                       </div>
-                                    </a>
-                                 </li>
-                                 <li class="mailbox-list-item">
-                                    <a href="#">
-                                       <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="checkbox" value="">
-                                       </div>
-                                       <img src="../../assets/images/avatars/avatar.png" alt="">
-                                       <div class="mailbox-list-item-content">
-                                          <span class="mailbox-list-item-title">
-                                          Sky Meyers
-                                          </span>
-                                          <p class="mailbox-list-item-text">
-                                             Phasellus vel turpis quis velit maximus sodales. Nam ultrices justo non odio bibendum tincidunt
-                                          </p>
-                                       </div>
-                                    </a>
-                                 </li>
-                                 <li class="mailbox-list-item">
-                                    <a href="#">
-                                       <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="checkbox" value="">
-                                       </div>
-                                       <img src="../../assets/images/avatars/avatar.png" alt="">
-                                       <div class="mailbox-list-item-content">
-                                          <span class="mailbox-list-item-title">
-                                          Josh Owen
-                                          </span>
-                                          <p class="mailbox-list-item-text">
-                                             Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae
-                                          </p>
-                                       </div>
-                                    </a>
-                                 </li>
-                                 <li class="mailbox-list-item active">
-                                    <a href="#">
-                                       <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="checkbox" value="">
-                                       </div>
-                                       <img src="../../assets/images/avatars/avatar.png" alt="">
-                                       <div class="mailbox-list-item-content">
-                                          <span class="mailbox-list-item-title">
-                                          Dianna Fox
-                                          </span>
-                                          <p class="mailbox-list-item-text">
-                                             Quisque quis sapien ac risus consectetur luctus ut et ipsum. Nullam pretium venenatis nibh a dictum. Donec orci lorem, mollis vitae quam sit amet, pellentesque imperdiet velit
-                                          </p>
-                                       </div>
-                                    </a>
-                                 </li>
-                                 <li class="mailbox-list-item">
-                                    <a href="#">
-                                       <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="checkbox" value="">
-                                       </div>
-                                       <img src="../../assets/images/avatars/avatar.png" alt="">
-                                       <div class="mailbox-list-item-content">
-                                          <span class="mailbox-list-item-title">
-                                          Miriam Bell
-                                          </span>
-                                          <p class="mailbox-list-item-text">
-                                             Etiam fringilla ante scelerisque, egestas erat vitae, hendrerit sapien. Orci varius natoque penatibus et magnis dis parturient montes
-                                          </p>
-                                       </div>
-                                    </a>
-                                 </li>
-                                 <li class="mailbox-list-item">
-                                    <a href="#">
-                                       <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="checkbox" value="">
-                                       </div>
-                                       <img src="../../assets/images/avatars/avatar.png" alt="">
-                                       <div class="mailbox-list-item-content">
-                                          <span class="mailbox-list-item-title">
-                                          Mike Gonzalez
-                                          </span>
-                                          <p class="mailbox-list-item-text">
-                                             Aenean felis magna, hendrerit at convallis vitae, facilisis eget libero. Phasellus eleifend, ligula eu mollis volutpat, risus dolor posuere augue
-                                          </p>
-                                       </div>
-                                    </a>
-                                 </li>
-                                 <li class="mailbox-list-item">
-                                    <a href="#">
-                                       <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="checkbox" value="">
-                                       </div>
-                                       <img src="../../assets/images/avatars/avatar.png" alt="">
-                                       <div class="mailbox-list-item-content">
-                                          <span class="mailbox-list-item-title">
-                                          Ricky Fernandez
-                                          </span>
-                                          <p class="mailbox-list-item-text">
-                                             Nulla volutpat iaculis turpis, vitae dignissim enim. Ut consequat pretium tellus, quis pretium nisi
-                                          </p>
-                                       </div>
-                                    </a>
-                                 </li>
-                                 <li class="mailbox-list-item">
-                                    <a href="#">
-                                       <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="checkbox" value="">
-                                       </div>
-                                       <img src="../../assets/images/avatars/avatar.png" alt="">
-                                       <div class="mailbox-list-item-content">
-                                          <span class="mailbox-list-item-title">
-                                          Sonia Lee
-                                          </span>
-                                          <p class="mailbox-list-item-text">
-                                             Sed sed erat nec tellus mattis efficitur ac id nunc. Vestibulum ante ipsum primis in faucibus orci luctus et
                                           </p>
                                        </div>
                                     </a>
@@ -186,7 +59,7 @@
                                  Work together with better collaboration tools
                               </h5>
                               <div class="mailbox-open-author">
-                                 <img src="../../assets/images/avatars/avatar.png" alt="">
+                                 <img src="<?php echo BASE_URL . 'Assets/images/logo.png';?>" alt="">
                                  <div class="mailbox-open-author-info">
                                     <span class="mailbox-open-author-info-email d-block">dianna@gmail.com</span>
                                     <span class="mailbox-open-author-info-to">To <span class="badge badge-info align-self-center">devs</span></span>
