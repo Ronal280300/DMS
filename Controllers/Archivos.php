@@ -78,19 +78,8 @@ class Archivos extends Controller
         $data = $this->model->getArchivosCarpeta( $id_carpeta );
         echo json_encode( $data, JSON_UNESCAPED_UNICODE );
         die();
-
     }
 
-    public function verDetalle($id_carpeta)
-    {
-        $data = $this->model->getArchivosCompartidos($id_carpeta);
-        for ($i=0; $i < count($data); $i++) { 
-            $data[$i]['acciones'] = '<button class="btn btn-danger btn-sm">Eliminar</button>';        
-        }
-        echo json_encode($data, JSON_UNESCAPED_UNICODE);
-        die();
-
-    }
 
 }
 

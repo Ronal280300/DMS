@@ -70,35 +70,38 @@
             <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
             </button>
          </div>
-        <form id="frmCompartir">
-        <div class="modal-body">
-         <div id="container-archivos">
-            <input type="hidden" id="archivo" name="archivos[]">       
-         </div>
-            <select class="js-states form-control" id="usuarios" name="usuarios[]" 
-            tabindex="-1" style="display: none; width: 100%" multiple="multiple">
-            </select>
-            <hr>
-           <div class="table-responsive" >
-            <table class="table table-striped" id="tblDetalle" style="width: 100%;">
-               <thead>
-                  <tr>
-                     <th>Archivo</th>
-                     <th>Usuario</th>
-                     <th></th>
-                  </tr>
-               </thead>
-               <tbody>
-                  
-               </tbody>
-            </table>
-           </div>
-         </div>
-         <div class="modal-footer">
-            <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Cancelar</button>
-            <button class="btn btn-primary" type="submit">Compartir</button>
-         </div>
-        </form>
+         <form id="frmCompartir">
+            <div class="modal-body">
+               <select class="js-states form-control" id="usuarios" name="usuarios[]" 
+                  tabindex="-1" style="display: none; width: 100%" multiple="multiple">
+               </select>
+               <hr>
+               <div class="accordion accordion-flush mb-3" id="accordionFlushExample">
+                  <div class="accordion-item">
+                     <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        Seleccionar archivos a compartir
+                        </button>
+                     </h2>
+                     <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                           <div id="container-archivos">
+                              <input type="hidden" id="id_archivo" name="archivos[]">       
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <hr>
+                 <div class="text-center">
+                    <a class="btn btn-outline-info" href="#" id="btnVerDetalle">Ver detalle</a> 
+                 </div>
+            </div>
+            <div class="modal-footer">
+               <button class="btn btn-outline-danger" type="button" data-bs-dismiss="modal">Cancelar</button>
+               <button class="btn btn-outline-primary" type="submit">Compartir</button>
+            </div>
+         </form>
       </div>
    </div>
 </div>

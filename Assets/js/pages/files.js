@@ -37,7 +37,8 @@ const usuarios = document.querySelector("#usuarios");
 
 const btnCompartir = document.querySelector("#btnCompartir");
 const container_archivos = document.querySelector("#container-archivos");
-const tblDetalle = document.querySelector("#tblDetalle tbody");
+
+const btnVerDetalle = document.querySelector('#btnVerDetalle'); 
 
 document.addEventListener("DOMContentLoaded", function () {
   btnUpload.addEventListener("click", function () {
@@ -121,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //Multiple Select
   $(".js-states").select2({
+    theme: 'bootstrap-5',
     placeholder: "Buscar",
     maximumSelectionLength: 5,
     minimumInputLength: 2,
@@ -180,6 +182,11 @@ document.addEventListener("DOMContentLoaded", function () {
     verArchivos();
   });
 
+  //VER DETALLE COMPARTIDO
+  btnVerDetalle.addEventListener('click', function () { 
+    window.location = base_url + 'admin/verdetalle/' + id_carpeta.value;
+  })
+
 });
 
 function compartirArchivo(id) {
@@ -206,7 +213,7 @@ function verArchivos() {
                      </label>
                    </div>`;
         });
-        cargarDetalle(id_carpeta.value);
+        //cargarDetalle(id_carpeta.value);
       } else {
         html = `<div class="alert alert-danger alert-style-light" role="alert">
              Carpeta vacía
@@ -218,26 +225,7 @@ function verArchivos() {
     }
   };
 }
-function cargarDetalle(id_carpeta) {
-  $("#tblDetalle").DataTable({
-    ajax: {
-      url: base_url + "archivos/verDetalle/" + id_carpeta,
-      dataSrc: ''
-    },
-    columns: [
-      { data: 'nombre' },
-      { data: 'correo' },
-      { data: 'acciones' }
-    ],
-    language: {
-      url: "https://cdn.datatables.net/plug-ins/2.0.7/i18n/es-ES.json",
-    },
-    responsive: true,
-    "scrollY": "200px",
-    destroy: true,
-    order: [[1, "desc"]],
-  });
-  return; 
-}
+
+
 
 
