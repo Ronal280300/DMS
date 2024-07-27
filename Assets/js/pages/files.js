@@ -152,9 +152,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  frmCompartir.addEventListener("submit", function (e) {
+  frmCompartir.addEventListener('submit', function (e) {
     e.preventDefault();
-    if (usuarios.value == "") {
+    if (usuarios.value == '') {
       alertaPersonalizada("warning", "SELECCIONE UN USUARIO");
     } else {
       const data = new FormData(frmCompartir);
@@ -168,8 +168,8 @@ document.addEventListener("DOMContentLoaded", function () {
           const res = JSON.parse(this.responseText);
           alertaPersonalizada(res.tipo, res.mensaje);
           if (res.tipo == "success") {
-            id_archivo.value = "";
-            $(".js-states").val(null).trigger("change");
+            id_archivo.value = '';
+            $('.js-states').val(null).trigger('change');
             myModalUs.hide();
           }
         }
@@ -222,6 +222,7 @@ function verArchivos() {
       container_archivos.innerHTML = html;
       myModal2.hide();
       myModalUs.show();
+
     }
   };
 }
