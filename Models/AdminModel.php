@@ -79,7 +79,7 @@ class AdminModel extends Query {
 
     public function getArchivosCompartidos($id_carpeta)
     {
-        $sql = "SELECT d.id, d.correo, a.nombre FROM detalle_archivos d INNER JOIN archivos a ON d.id_archivo = a.id 
+        $sql = "SELECT d.id, d.correo, d.estado, d.elimina, a.nombre FROM detalle_archivos d INNER JOIN archivos a ON d.id_archivo = a.id 
         INNER JOIN carpetas c ON a.id_carpeta = c.id WHERE a.id_carpeta = $id_carpeta";
         return $this->selectAll( $sql );
     }

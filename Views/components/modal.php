@@ -85,8 +85,7 @@
                      </h2>
                      <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
-                           <div id="container-archivos">
-                              <input type="hidden" id="id_archivo" name="archivos[]">       
+                           <div id="container-archivos">   
                            </div>
                         </div>
                      </div>

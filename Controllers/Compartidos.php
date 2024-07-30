@@ -12,7 +12,7 @@ class Compartidos extends Controller
 
     public function index()
  {
-        $data[ 'title' ] = 'Archvios Compartidos';
+        $data[ 'title' ] = 'Archivos Compartidos';
         $data['script'] = 'compartidos.js';
         $correo = $_SESSION['correo'];
         $data['archivos'] = $this->model->getArchivosCompartidos($correo);

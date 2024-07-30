@@ -85,9 +85,9 @@ class Usuarios extends Controller
                         $hash = password_hash( $clave, PASSWORD_DEFAULT );
                         $data = $this->model->modificar( $nombre, $apellido, $correo, $telefono, $direccion, $rol, $id_usuario );
                         if ( $data == 1 ) {
-                            $res = array( 'tipo' =>'success', 'mensaje' => 'USUARIO MODIFICADO' );
+                            $res = array( 'tipo' =>'success', 'mensaje' => 'USUARIO EDITADO' );
                         } else {
-                            $res = array( 'tipo' =>'error', 'mensaje' => 'ERROR AL MODIFICAR' );
+                            $res = array( 'tipo' =>'error', 'mensaje' => 'ERROR AL EDITAR' );
                         }
                     } else {
                         $res = array( 'tipo' =>'warning', 'mensaje' => 'EL TELEFONO YA EXISTE' );

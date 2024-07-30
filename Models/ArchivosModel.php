@@ -51,5 +51,19 @@ class ArchivosModel extends Query {
         $sql = "SELECT * FROM archivos WHERE id_carpeta = $id_carpeta";
         return $this->selectAll( $sql );
     }
+
+    public function eliminarCompartido($fecha,$id)
+    {
+        $sql = "UPDATE detalle_archivos SET estado = ?, elimina = ? WHERE id = ?";
+        $array = [0, $fecha ,$id];
+        return $this->save( $sql, $array);
+    }
+
+    public function getCarpeta( $id_archivo )
+    {
+        $sql = "SELECT id, id_carpeta FROM archivos WHERE id = $id_archivo";
+
+        return $this->select( $sql );
+    }
 }
 ?>

@@ -9,6 +9,7 @@
                         <tr>
                            <th>Usuario</th>
                            <th>Archivo</th>
+                           <th>Estado</th>
                            <th></th>
                         </tr>
                      </thead>
