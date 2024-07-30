@@ -89,6 +89,21 @@ class Archivos extends Controller
         die();
     }
 
+    public function eliminar($id)
+    {
+        $fecha = date('Y-m-d H:i:s');
+        $nueva = date("Y-m-d H:i:s", strtotime($fecha . '+30 days'));
+        $data = $this->model->eliminar($nueva, $id);
+        if ($data == 1) {
+            $res = array('tipo' => 'success', 'mensaje' => 'ARCHIVO ELIMINADO', 'fecha_eliminacion' => $nueva);
+        } else {
+            $res = array('tipo' => 'error', 'mensaje' => 'ERROR AL ELIMINAR');
+        }
+    
+        echo json_encode($res);
+        die();
+    }
+
 
     //ELIMINAR ARCHIVO COMPARTIDO
 

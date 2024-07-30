@@ -19,11 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function eliminarDetalle(id) {
   const url = base_url + "archivos/eliminarCompartido/" + id;
-  eliminarRegistro(
-    "¿ESTÁ SEGURO DE ELIMINAR?",
+  eliminarRegistro("¿ESTÁ SEGURO DE ELIMINAR?",
     "EL ARCHIVO COMPARTIDO SE ELIMINARÁ DE FORMA PERMANENTE EN 30 DÍAS",
-    "ELIMINAR",
-    url,
-    tbl
-  );
+    "ELIMINAR", url, tbl)
 }

@@ -12,38 +12,41 @@ const myModal1 = new bootstrap.Modal(modalCarpeta);
 const frmCarpeta = document.querySelector("#frmCarpeta");
 
 const btnSubirArchivo = document.querySelector("#btnSubirArchivo");
-const file = document.querySelector('#file');
+const file = document.querySelector("#file");
 
 //capturamos el id del modal de la carpeta
 const modalCompartir = document.querySelector("#modalCompartir");
 //Se crea una instancia con el modal
 const myModal2 = new bootstrap.Modal(modalCompartir);
-const id_carpeta = document.querySelector('#id_carpeta');
-const carpetas = document.querySelectorAll('.carpetas');
-const btnSubir = document.querySelector('#btnSubir');
+const id_carpeta = document.querySelector("#id_carpeta");
+const carpetas = document.querySelectorAll(".carpetas");
+const btnSubir = document.querySelector("#btnSubir");
 
 //ver
 const btnVer = document.querySelector("#btnVer");
 
 //Compartir archivos entre usuarios
 //Levantar modal de compartir
-const compartir = document.querySelectorAll('.compartir');
+const compartir = document.querySelectorAll(".compartir");
 const modalUsuarios = document.querySelector("#modalUsuarios");
 const myModalUs = new bootstrap.Modal(modalUsuarios);
-const frmCompartir = document.querySelector('#frmCompartir');
-const usuarios = document.querySelector('#usuarios');
+const frmCompartir = document.querySelector("#frmCompartir");
+const usuarios = document.querySelector("#usuarios");
 
-const btnCompartir = document.querySelector('#btnCompartir');
-const container_archivos = document.querySelector('#container-archivos');
-const btnVerDetalle = document.querySelector('#btnVerDetalle');
-const content_acordeon = document.querySelector('#accordionFlushExample');
+const btnCompartir = document.querySelector("#btnCompartir");
+const container_archivos = document.querySelector("#container-archivos");
+const btnVerDetalle = document.querySelector("#btnVerDetalle");
+const content_acordeon = document.querySelector("#accordionFlushExample");
 
-document.addEventListener('DOMContentLoaded', function () {
-  btnUpload.addEventListener('click', function () {
+//Eliminar archivos recientes
+const eliminar = document.querySelectorAll(".eliminar");
+
+document.addEventListener("DOMContentLoaded", function () {
+  btnUpload.addEventListener("click", function () {
     myModal.show();
   });
 
-  btnNuevaCarpeta.addEventListener('click', function () {
+  btnNuevaCarpeta.addEventListener("click", function () {
     myModal.hide();
     myModal1.show();
   });
@@ -150,14 +153,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  frmCompartir.addEventListener('submit', function (e) {
+  frmCompartir.addEventListener("submit", function (e) {
     e.preventDefault();
-    if (usuarios.value == '') {
-      alertaPersonalizada('warning', 'SELECCIONE UN USUARIO');
+    if (usuarios.value == "") {
+      alertaPersonalizada("warning", "SELECCIONE UN USUARIO");
     } else {
       const data = new FormData(frmCompartir);
       const http = new XMLHttpRequest();
-      const url = base_url + 'archivos/compartir';
+      const url = base_url + "archivos/compartir";
       http.open("POST", url, true);
       http.send(data);
       http.onreadystatechange = function () {
@@ -165,8 +168,8 @@ document.addEventListener('DOMContentLoaded', function () {
           console.log(this.responseText);
           const res = JSON.parse(this.responseText);
           alertaPersonalizada(res.tipo, res.mensaje);
-          if (res.tipo == 'success') {
-            $('.js-states').val(null).trigger('change');
+          if (res.tipo == "success") {
+            $(".js-states").val(null).trigger("change");
             myModalUs.hide();
           }
         }
@@ -185,9 +188,38 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+//ELIMINAR ARCHIVO RECIENTE
+eliminar.forEach(enlace => {
+  enlace.addEventListener('click', function (e) {
+    let id = e.target.getAttribute('data-id')
+    const url = base_url + 'archivos/eliminar/' + id;
+    eliminarRegistro(
+      "¿ESTÁ SEGURO DE ELIMINAR?",
+      "EL ARCHIVO SE ELIMINARÁ DE FORMA PERMANENTE EN 30 DÍAS",
+      "ELIMINAR",
+      url,
+      null
+    );
+  });
+});
+
+eliminarArchivoCarpeta.forEach(enlace => {
+  enlace.addEventListener('click', function (e) {
+    let id = e.target.getAttribute('data-id')
+    const url = base_url + 'archivos/eliminar/' + id;
+    eliminarRegistro(
+      "¿ESTÁ SEGURO DE ELIMINAR?",
+      "EL ARCHIVO SE ELIMINARÁ DE FORMA PERMANENTE EN 30 DÍAS",
+      "ELIMINAR",
+      url,
+      null
+    );
+  });
+});
+
 function compartirArchivo(id) {
   const http = new XMLHttpRequest();
-  const url = base_url + 'archivos/buscarCarpeta/' + id;
+  const url = base_url + "archivos/buscarCarpeta/" + id;
   http.open("GET", url, true);
   http.send();
   http.onreadystatechange = function () {
@@ -195,8 +227,8 @@ function compartirArchivo(id) {
       const res = JSON.parse(this.responseText);
       console.log(this.responseText);
       id_carpeta.value = res.id_carpeta;
-      content_acordeon.classList.add('d-none');
-      container_archivos.innerHTML = `<input type="hidden" value= "${res.id}"  name="archivos[]">`
+      content_acordeon.classList.add("d-none");
+      container_archivos.innerHTML = `<input type="hidden" value= "${res.id}"  name="archivos[]">`;
       myModalUs.show();
     }
   };
@@ -212,7 +244,7 @@ function verArchivos() {
       const res = JSON.parse(this.responseText);
       let html = "";
       if (res.length > 0) {
-        content_acordeon.classList.remove('d-none');
+        content_acordeon.classList.remove("d-none");
         res.forEach((archivo) => {
           html += `<div class="form-check">
                      <input class="form-check-input" type="checkbox" value = "${archivo.id}" name = "archivos[]" 

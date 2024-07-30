@@ -19,20 +19,21 @@ function eliminarRegistro(title, text, accion, url, table) {
   }).then((result) => {
     if (result.isConfirmed) {
       const http = new XMLHttpRequest();
-
       http.open("GET", url, true);
-
       http.send();
-
       http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-
           const res = JSON.parse(this.responseText);
           alertaPersonalizada(res.tipo, res.mensaje);
           if (res.tipo == 'success') {
-            table.ajax.reload();
+            if (table != null) {
+              table.ajax.reload();
+            } else{
+              setTimeout(() => {
+                window.location.reload();
+              }, 1500);
+            }
           }
-
         }
       };
     }

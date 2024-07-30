@@ -65,5 +65,12 @@ class ArchivosModel extends Query {
 
         return $this->select( $sql );
     }
+
+    public function eliminar($fecha,$id)
+    {
+        $sql = "UPDATE archivos SET estado = ?, elimina = ? WHERE id = ?";
+        $array = [0, $fecha ,$id];
+        return $this->save( $sql, $array);
+    }
 }
 ?>

@@ -62,10 +62,9 @@ class AdminModel extends Query {
 
     public function getArchivosRecientes( $id_usuario )
     {
-        $sql = "SELECT a.* FROM archivos a INNER JOIN carpetas c on a.id_carpeta = c.id WHERE c.id_usuario = $id_usuario ORDER BY a.id DESC LIMIT 10";
-
+        $sql = "SELECT a.* FROM archivos a INNER JOIN carpetas c on a.id_carpeta = c.id 
+        WHERE c.id_usuario = $id_usuario AND a.estado = 1 ORDER BY a.id DESC LIMIT 10";
         return $this->selectAll( $sql );
-
     }
 
     public function getArchivos($id_carpeta, $id_usuario )
