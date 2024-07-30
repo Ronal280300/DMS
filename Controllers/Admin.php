@@ -93,11 +93,16 @@ class Admin extends Controller
         $data[ 'title' ] = 'Archivos compartidos';
         $data[ 'id_carpeta' ] = $id_carpeta;
         $data[ 'script' ] = 'details.js';
+        $data[ 'carpeta' ] = $this->model->getCarpeta($id_carpeta);
+        if (empty($data['carpeta'])) {
+            echo 'PÁGINA NO ENCONTRADA';
+            exit;
+        }
         $this->views->getView( 'admin', 'detalle', $data );
     }
 
     public function listardetalle( $id_carpeta ) 
- {
+    {
         $data = $this->model->getArchivosCompartidos( $id_carpeta );
         for ( $i = 0; $i < count( $data );
         $i++ ) {
