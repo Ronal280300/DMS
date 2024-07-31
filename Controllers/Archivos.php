@@ -124,6 +124,11 @@ class Archivos extends Controller
         die();
     }
     
+    public function busqueda($valor)
+    {
+        $data = $this->model->getBusqueda($valor, $this->id_usuario);
+        echo json_encode($data, JSON_UNESCAPED_UNICODE);
+        die();
 
+    } 
 }
-

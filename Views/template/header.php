@@ -30,7 +30,7 @@
     <link rel="icon" href="<?php echo BASE_URL . 'Assets/images/favicon.ico'; ?>">
 
 </head>
-<body>
+    <body>
     <div class="app align-content-stretch d-flex flex-wrap">
         <div class="app-sidebar">
             <div class="logo">
@@ -67,7 +67,8 @@
         <div class="app-container">
             <div class="search">
                 <form>
-                    <input class="form-control" type="text" placeholder="Type here..." aria-label="Search">
+                    <input class="form-control" id="inputBusqueda" type="text" placeholder="Buscar..." aria-label="Search">
+                    <div id="container-result"></div>
                 </form>
                 <a href="#" class="toggle-search"><i class="material-icons">close</i></a>
             </div>

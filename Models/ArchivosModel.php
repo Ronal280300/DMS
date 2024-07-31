@@ -83,5 +83,13 @@ class ArchivosModel extends Query {
     }
 
     
+    public function getBusqueda($valor,$id_usuario)
+    {
+        $sql = "SELECT * FROM archivos WHERE nombre LIKE '%". $valor. "%' AND id_usuario = $id_usuario 
+        AND estado = 1 LIMIT 10";
+        return $this->selectAll($sql);
+    }
+
+    
 }
 ?>
