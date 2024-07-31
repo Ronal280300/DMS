@@ -11,6 +11,7 @@ class Usuarios extends Controller
  {
         $data[ 'title' ] = 'Gestión de usuarios';
         $data[ 'script' ] = 'usuarios.js';
+        $data[ 'menu' ] = 'usuarios';
         $this->views->getView( 'usuarios', 'index', $data );
     }
 

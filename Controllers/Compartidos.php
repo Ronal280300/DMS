@@ -14,6 +14,7 @@ class Compartidos extends Controller
  {
         $data[ 'title' ] = 'Archivos Compartidos';
         $data['script'] = 'compartidos.js';
+        $data[ 'menu' ] = 'share';
         $correo = $_SESSION['correo'];
         $data['archivos'] = $this->model->getArchivosCompartidos($correo);
         $this->views->getView( 'admin', 'compartidos', $data );

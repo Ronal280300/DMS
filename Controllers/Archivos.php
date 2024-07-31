@@ -24,7 +24,7 @@ class Archivos extends Controller
             $carpetas[ $i ][ 'fecha' ] = time_ago( strtotime( $carpetas[ $i ][ 'fecha_create' ] ) );
         }
         $data[ 'carpetas' ] = $carpetas;
-
+        $data[ 'menu' ] = 'admin';
         $this->views->getView( 'archivos', 'index', $data );
     }
 

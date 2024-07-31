@@ -15,6 +15,7 @@ class Admin extends Controller
         $data[ 'title' ] = 'Panel de administración';
         $data[ 'script' ] = 'files.js';
         $data[ 'active' ] = 'recent';
+        $data[ 'menu' ] = 'admin';
         $carpetas = $this->model->getCarpetas( $this->id_usuario );
         $data[ 'archivos' ] = $this->model->getArchivosRecientes( $this->id_usuario );
 
@@ -86,6 +87,7 @@ class Admin extends Controller
         $data[ 'title' ] = 'Lista de archivos';
         $data[ 'active' ] = 'detail';
         $data[ 'archivos' ] = $this->model->getArchivos( $id_carpeta, $this->id_usuario );
+        $data[ 'menu' ] = 'admin';
         $this->views->getView( 'admin', 'archivos', $data );
     }
 
@@ -98,6 +100,7 @@ class Admin extends Controller
             echo 'PÁGINA NO ENCONTRADA';
             exit;
         }
+        $data[ 'menu' ] = 'admin';
         $this->views->getView( 'admin', 'detalle', $data );
     }
 
