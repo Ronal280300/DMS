@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   });
 
-  carpetas.forEach((carpeta) => {
+  carpetas.forEach (carpeta => {
     carpeta.addEventListener("click", function (e) {
       id_carpeta.value = e.target.id;
       myModal2.show();
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //Agregar click al enclace compartir
-  compartir.forEach((enlace) => {
+  compartir.forEach(enlace => {
     enlace.addEventListener("click", function (e) {
       compartirArchivo(e.target.id);
     });
@@ -266,3 +266,6 @@ function verArchivos() {
     }
   };
 }
+
+
+

@@ -45,9 +45,11 @@
                         <span class="p-h-sm text-muted"><?php echo $archivo['fecha_create'];?></span>
                         <a href="#" class="dropdown-toggle file-manager-recent-file-actions" id="file-manager-recent-<?php echo $archivo['id']; ?>" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="file-manager-recent-<?php echo $archivo['id']; ?>">
-                           <li><a class="dropdown-item" href="#">Compartir</a></li>
-                           <li><a class="dropdown-item" href="#">Descargar</a></li>
-                           <li><a class="dropdown-item" href="#">Eliminar</a></li>
+
+                           <li><a class="dropdown-item compartir" href="#" id="<?php echo $archivo['id']; ?>">Compartir</a></li>
+                           <li><a class="dropdown-item" href="<?php echo BASE_URL . 'Assets/archivos/' . $archivo['id_carpeta'] . '/' . $archivo['nombre']; ?>" download="<?php echo $archivo['nombre']; ?>">Descargar</a></li>
+                           <li><a class="dropdown-item eliminar" href="#" data-id="<?php echo $archivo['id']; ?>">Eliminar</a></li>
+
                         </ul>
                      </div>
                   </div>
