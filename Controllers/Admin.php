@@ -60,20 +60,20 @@ class Admin extends Controller
 
     public function subirarchivo()
     {
-        $id_carpeta = ( empty( $_POST[ 'id_carpeta' ] ) ) ? 1 : $_POST[ 'id_carpeta' ];
-        $archivo = $_FILES[ 'file' ];
-        $name = $archivo[ 'name' ];
-        $tmp = $archivo[ 'tmp_name' ];
-        $tipo = $archivo[ 'type' ];
-        $data = $this->model->subirArchivo( $name, $tipo, $id_carpeta );
+        $id_carpeta = (empty( $_POST['id_carpeta'])) ? 1 : $_POST['id_carpeta'];
+        $archivo = $_FILES['file'];
+        $name = $archivo['name'];
+        $tmp = $archivo['tmp_name'];
+        $tipo = $archivo['type'];
+        $data = $this->model->subirArchivo($name, $tipo, $id_carpeta, $this->id_usuario);
         if ( $data > 0 ) {
             $destino = 'Assets/archivos';
-            if ( !file_exists( $destino ) ) {
-                mkdir( $destino );
+            if ( !file_exists($destino)){
+                mkdir($destino);
             }
             $carpeta = $destino . '/' . $id_carpeta;
-            if ( !file_exists( $carpeta ) ) {
-                mkdir( $carpeta );
+            if (!file_exists($carpeta)){
+                mkdir($carpeta);
             }
             move_uploaded_file( $tmp, $carpeta . '/' . $name );
             $res = array( 'tipo' =>'success', 'mensaje' => 'ARCHIVO CARGADO' );
