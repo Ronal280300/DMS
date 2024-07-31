@@ -56,7 +56,7 @@
                     </a>
                     </li>
                     <li class="<?php echo ($data['menu'] == 'share') ? 'active-page' : '' ; ?>">
-                        <a href="<?php echo BASE_URL . 'compartidos'; ?>" class="<?php echo ($data['menu'] == 'share') ? 'active' : '' ; ?>"><i class="material-icons-two-tone">inbox</i>Compartidos<span class="badge rounded-pill badge-danger float-end"></span></a>
+                        <a href="<?php echo BASE_URL . 'compartidos'; ?>" class="<?php echo ($data['menu'] == 'share') ? 'active' : '' ; ?>"><i class="material-icons-two-tone">inbox</i>Compartidos<span class="badge rounded-pill badge-danger float-end"><?php echo $data['shares']['total']; ?></span></a>
                     </li>
                     <li class="<?php echo ($data['menu'] == 'admin') ? 'active-page' : '' ; ?>">
                         <a href="<?php echo BASE_URL . 'admin'; ?>" class="<?php echo ($data['menu'] == 'admin') ? 'active' : '' ; ?>"><i class="material-icons-two-tone">cloud_queue</i>Gestor de Archivos</a>

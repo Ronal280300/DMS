@@ -2,12 +2,13 @@
 
 class Archivos extends Controller
  {
-    private $id_usuario;
+    private $id_usuario,$correo;
 
     public function __construct() {
         parent::__construct();
         session_start();
         $this->id_usuario = $_SESSION[ 'id' ];
+        $this->correo = $_SESSION[ 'correo' ];
     }
 
     public function index()
@@ -25,13 +26,14 @@ class Archivos extends Controller
         }
         $data[ 'carpetas' ] = $carpetas;
         $data[ 'menu' ] = 'admin';
+        $data['shares'] = $this->model->verificarEstado($this->correo);
         $this->views->getView( 'archivos', 'index', $data );
     }
 
     public function getUsuarios()
     {
         $valor = $_GET[ 'q' ];
-        $data = $this->model->getUsuarios( $valor );
+        $data = $this->model->getUsuarios( $valor, $this->id_usuario );
         for ( $i = 0; $i < count( $data );
         $i++ ) {
 

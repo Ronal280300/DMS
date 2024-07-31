@@ -2,12 +2,13 @@
 
 class Admin extends Controller
  {
-    private $id_usuario;
+    private $id_usuario, $correo;
 
     public function __construct() {
         parent::__construct();
         session_start();
         $this->id_usuario = $_SESSION[ 'id' ];
+        $this->correo = $_SESSION[ 'correo' ];
     }
 
     public function index()
@@ -26,11 +27,12 @@ class Admin extends Controller
             $carpetas[ $i ][ 'fecha' ] = time_ago( strtotime( $carpetas[ $i ][ 'fecha_create' ] ) );
         }
         $data[ 'carpetas' ] = $carpetas;
+        $data['shares'] = $this->model->verificarEstado($this->correo);
         $this->views->getView( 'admin', 'home', $data );
     }
 
     public function crearcarpeta()
- {
+    {
 
         $nombre = $_POST[ 'nombre' ];
         if ( empty( $nombre ) ) {
@@ -57,7 +59,7 @@ class Admin extends Controller
     }
 
     public function subirarchivo()
- {
+    {
         $id_carpeta = ( empty( $_POST[ 'id_carpeta' ] ) ) ? 1 : $_POST[ 'id_carpeta' ];
         $archivo = $_FILES[ 'file' ];
         $name = $archivo[ 'name' ];
@@ -83,11 +85,12 @@ class Admin extends Controller
     }
 
     public function ver( $id_carpeta )
- {
+    {
         $data[ 'title' ] = 'Lista de archivos';
         $data[ 'active' ] = 'detail';
         $data[ 'archivos' ] = $this->model->getArchivos( $id_carpeta, $this->id_usuario );
         $data[ 'menu' ] = 'admin';
+        $data['shares'] = $this->model->verificarEstado($this->correo);
         $this->views->getView( 'admin', 'archivos', $data );
     }
 
@@ -100,7 +103,8 @@ class Admin extends Controller
             echo 'PÁGINA NO ENCONTRADA';
             exit;
         }
-        $data[ 'menu' ] = 'admin';
+        $data[ 'menu' ] = 'admin'; 
+        $data['shares'] = $this->model->verificarEstado($this->correo);
         $this->views->getView( 'admin', 'detalle', $data );
     }
 
