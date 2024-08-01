@@ -2,7 +2,11 @@
                 </div>
             </div>
         </div>
+
+    </div>
     
+    
+
     <!-- Javascripts -->
     <script src="<?php echo BASE_URL . 'Assets/plugins/jquery/jquery-3.5.1.min.js'; ?>"></script>
     <script src="<?php echo BASE_URL . 'Assets/plugins/bootstrap/js/popper.min.js'; ?>"></script>

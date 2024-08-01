@@ -40,6 +40,7 @@ const content_acordeon = document.querySelector("#accordionFlushExample");
 
 //Eliminar archivos recientes
 const eliminar = document.querySelectorAll(".eliminar");
+const container_progress = document.querySelectorAll("#container-progress");
 
 document.addEventListener("DOMContentLoaded", function () {
   btnUpload.addEventListener("click", function () {
@@ -89,22 +90,28 @@ document.addEventListener("DOMContentLoaded", function () {
     const http = new XMLHttpRequest();
     const url = base_url + "admin/subirarchivo";
     http.open("POST", url, true);
+    http.upload.addEventListener("progress", function (e) {
+      let porcentaje = (e.loaded / e.total) * 100;
+      container_progress= `<div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+    </div>`
+    })
     http.send(data);
     http.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         console.log(this.responseText);
         const res = JSON.parse(this.responseText);
         alertaPersonalizada(res.tipo, res.mensaje);
-        if (res.tipo == "success") {
-          setTimeout(() => {
-            window.location.reload();
-          }, 1500);
-        }
+        //if (res.tipo == "success") {
+          //setTimeout(() => {
+            //window.location.reload();
+          //}, 1500);
+        //}
       }
     };
   });
 
-  carpetas.forEach (carpeta => {
+  carpetas.forEach((carpeta) => {
     carpeta.addEventListener("click", function (e) {
       id_carpeta.value = e.target.id;
       myModal2.show();
@@ -147,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //Agregar click al enclace compartir
-  compartir.forEach(enlace => {
+  compartir.forEach((enlace) => {
     enlace.addEventListener("click", function (e) {
       compartirArchivo(e.target.id);
     });
@@ -189,10 +196,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //ELIMINAR ARCHIVO RECIENTE
-eliminar.forEach(enlace => {
-  enlace.addEventListener('click', function (e) {
-    let id = e.target.getAttribute('data-id')
-    const url = base_url + 'archivos/eliminar/' + id;
+eliminar.forEach((enlace) => {
+  enlace.addEventListener("click", function (e) {
+    let id = e.target.getAttribute("data-id");
+    const url = base_url + "archivos/eliminar/" + id;
     eliminarRegistro(
       "¿ESTÁ SEGURO DE ELIMINAR?",
       "EL ARCHIVO SE ELIMINARÁ DE FORMA PERMANENTE EN 30 DÍAS",
@@ -203,10 +210,10 @@ eliminar.forEach(enlace => {
   });
 });
 
-eliminarArchivoCarpeta.forEach(enlace => {
-  enlace.addEventListener('click', function (e) {
-    let id = e.target.getAttribute('data-id')
-    const url = base_url + 'archivos/eliminar/' + id;
+eliminarArchivoCarpeta.forEach((enlace) => {
+  enlace.addEventListener("click", function (e) {
+    let id = e.target.getAttribute("data-id");
+    const url = base_url + "archivos/eliminar/" + id;
     eliminarRegistro(
       "¿ESTÁ SEGURO DE ELIMINAR?",
       "EL ARCHIVO SE ELIMINARÁ DE FORMA PERMANENTE EN 30 DÍAS",
@@ -266,6 +273,3 @@ function verArchivos() {
     }
   };
 }
-
-
-

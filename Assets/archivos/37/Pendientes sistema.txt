@@ -1,0 +1,17 @@
+Pendientes del sistema
+
+Se debe de resolver el codigo que eliminar los archivos desde los 3 puntos en los apartados de Todos los archivos y dentro de la carpeta
+
+Tercera parte minuto 2:02:00
+
+Partes
+index.php
+archivos.php
+
+Tambien el error que da una funcion en el console
+
+
+
+
+
+Quedé 1:14:34 del video cuarta parte
