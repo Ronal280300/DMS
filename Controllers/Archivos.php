@@ -138,10 +138,16 @@ class Archivos extends Controller
         $data[ 'title' ] = 'Archivos eliminados';
         $data[ 'active' ] = 'deleted';
         $data[ 'script' ] = 'deleted.js';
-        $data[ 'archivos' ] = $this->model->getArchivos(0, $this->id_usuario );
         $data[ 'menu' ] = 'admin';
         $data['shares'] = $this->model->verificarEstado($this->correo);
         $this->views->getView( 'archivos', 'deleted', $data );
+    } 
+
+    public function listarHistorial()
+    {
+        $data = $this->model->getArchivos(0, $this->id_usuario );
+        echo json_encode($data, JSON_UNESCAPED_UNICODE);
+        die();
 
     } 
 }
