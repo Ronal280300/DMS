@@ -34,9 +34,7 @@ class Admin extends Controller
         $data[ 'menu' ] = 'admin';
         $carpetas = $this->model->getCarpetas( $this->id_usuario );
         $data[ 'archivos' ] = $this->model->getArchivosRecientes( $this->id_usuario );
-
-        for ( $i = 0; $i < count( $carpetas );
-        $i++ ) {
+        for ( $i = 0; $i < count( $carpetas ); $i++ ) {
 
             $carpetas[ $i ][ 'color' ] = substr( md5( $carpetas[ $i ][ 'id' ] ), 0, 6 );
             $carpetas[ $i ][ 'fecha' ] = time_ago( strtotime( $carpetas[ $i ][ 'fecha_create' ] ) );

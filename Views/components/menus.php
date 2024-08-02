@@ -14,7 +14,7 @@
             </a>
         </li>
         <li>
-            <a href="#" 
+            <a href="<?php echo BASE_URL . 'archivos/recicle'; ?>" 
                class="<?php echo ($data['active'] == 'deleted') ? 'active' : ''; ?>">
                Eliminados
             </a>
@@ -24,10 +24,6 @@
             <a href="#" 
                class="<?php echo ($data['active'] == 'detail') ? 'active' : ''; ?>">
                Detalle
-            </a>
-            <a href="#" 
-               class="<?php echo ($data['active'] == 'share') ? 'active' : ''; ?>">
-               Compartidos
             </a>
         </li>
     </ul>

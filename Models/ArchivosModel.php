@@ -6,17 +6,16 @@ class ArchivosModel extends Query {
         parent::__construct();
     }
 
-    public function getArchivos($id_usuario )
+    public function getArchivos($estado, $id_usuario )
     {
-        $sql = "SELECT a.* FROM archivos a INNER JOIN carpetas c on a.id_carpeta = c.id WHERE c.id_usuario = $id_usuario ORDER BY a.id DESC";
-
+        $sql = "SELECT a.* FROM archivos a INNER JOIN carpetas c on a.id_carpeta = c.id
+         WHERE c.id_usuario = $id_usuario AND a.estado = $estado ORDER BY a.id DESC";
         return $this->selectAll( $sql );
     }
 
     public function getCarpetas( $id_usuario )
     {
         $sql = "SELECT * FROM carpetas WHERE id_usuario = $id_usuario AND estado = 1 ORDER BY id DESC";
-
         return $this->selectAll( $sql );
     }
 
@@ -24,7 +23,6 @@ class ArchivosModel extends Query {
     {
         $sql = "SELECT * FROM usuarios WHERE correo LIKE '%" . $valor . "%' AND id != $id_usuario 
         AND estado = 1 LIMIT 10";
-
         return $this->selectAll( $sql );
     }
 

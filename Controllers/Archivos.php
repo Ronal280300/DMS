@@ -16,7 +16,7 @@ class Archivos extends Controller
         $data[ 'title' ] = 'Archivos';
         $data[ 'active' ] = 'todos';
         $data[ 'script' ] = 'files.js';
-        $data[ 'archivos' ] = $this->model->getArchivos( $this->id_usuario );
+        $data[ 'archivos' ] = $this->model->getArchivos(1, $this->id_usuario );
 
         $carpetas = $this->model->getCarpetas( $this->id_usuario );
         for ( $i = 0; $i < count( $carpetas );
@@ -129,6 +129,19 @@ class Archivos extends Controller
         $data = $this->model->getBusqueda($valor, $this->id_usuario);
         echo json_encode($data, JSON_UNESCAPED_UNICODE);
         die();
+
+    } 
+
+
+    public function recicle($valor)
+    {
+        $data[ 'title' ] = 'Archivos eliminados';
+        $data[ 'active' ] = 'deleted';
+        $data[ 'script' ] = 'deleted.js';
+        $data[ 'archivos' ] = $this->model->getArchivos(0, $this->id_usuario );
+        $data[ 'menu' ] = 'admin';
+        $data['shares'] = $this->model->verificarEstado($this->correo);
+        $this->views->getView( 'archivos', 'deleted', $data );
 
     } 
 }
