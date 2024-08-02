@@ -40,7 +40,7 @@ const content_acordeon = document.querySelector("#accordionFlushExample");
 
 //Eliminar archivos recientes
 const eliminar = document.querySelectorAll(".eliminar");
-const container_progress = document.querySelectorAll("#container-progress");
+let container_progress = document.querySelector("#container_progress");
 
 document.addEventListener("DOMContentLoaded", function () {
   btnUpload.addEventListener("click", function () {
@@ -77,24 +77,30 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //Subir Archivos
-  btnSubirArchivo.addEventListener("click", function (e) {
+  btnSubirArchivo.addEventListener('click', function (e) {
     myModal.hide();
     file.click();
   });
 
-  file.addEventListener("change", function (e) {
+  file.addEventListener('change', function (e) {
     console.log(e.target.files[0]);
     const data = new FormData();
-    data.append("id_carpeta", id_carpeta.value);
-    data.append("file", e.target.files[0]);
+    data.append('id_carpeta', id_carpeta.value);
+    data.append('file', e.target.files[0]);
     const http = new XMLHttpRequest();
-    const url = base_url + "admin/subirarchivo";
+    const url = base_url + 'admin/subirarchivo';
     http.open("POST", url, true);
     http.upload.addEventListener("progress", function (e) {
       let porcentaje = (e.loaded / e.total) * 100;
-      container_progress= `<div class="progress">
-    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+      container_progress.innerHTML = `<div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: ${porcentaje.toFixed(0)}%;" aria-valuenow="${porcentaje.toFixed(0)}" 
+    aria-valuemin="0" aria-valuemax="100">${porcentaje.toFixed(0)}%</div>
     </div>`
+    })
+    http.addEventListener('load', function(){ 
+          setTimeout(() => {
+            window.location.reload();
+          }, 1500);
     })
     http.send(data);
     http.onreadystatechange = function () {
@@ -102,11 +108,6 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(this.responseText);
         const res = JSON.parse(this.responseText);
         alertaPersonalizada(res.tipo, res.mensaje);
-        //if (res.tipo == "success") {
-          //setTimeout(() => {
-            //window.location.reload();
-          //}, 1500);
-        //}
       }
     };
   });
