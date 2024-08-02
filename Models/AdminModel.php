@@ -87,7 +87,6 @@ class AdminModel extends Query {
     public function getCarpeta( $id )
     {
         $sql = "SELECT * FROM carpetas WHERE id = $id";
-
         return $this->select( $sql );
     }
 
@@ -99,5 +98,19 @@ class AdminModel extends Query {
         return $this->select($sql);
     }
 
+    //ELIMINAR ARCHIVOS DE FORMA PERMANENTE
+
+    public function getConsulta()
+    {
+        $sql = "SELECT * FROM archivos WHERE estado = 0";
+        return $this->selectAll($sql);
+    }
+
+    public function eliminarRegistro($id_archivo)
+    {
+        $sql = "DELETE FROM archivos WHERE id = ?";
+        $datos = array($id_archivo);
+        return $this->save( $sql, $datos );
+    }
 }
 ?>
