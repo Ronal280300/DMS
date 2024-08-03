@@ -14,6 +14,7 @@
                      style="width:100%;" id = "tblArchivos">
                      <thead>
                         <tr>
+                           <th></th>
                            <th>Id</th>
                            <th>Nombre</th>
                            <th>Tipo</th>

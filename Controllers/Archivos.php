@@ -95,13 +95,12 @@ class Archivos extends Controller
     {
         $fecha = date('Y-m-d H:i:s');
         $nueva = date("Y-m-d H:i:s", strtotime($fecha . '+30 days'));
-        $data = $this->model->eliminar($nueva, $id);
+        $data = $this->model->eliminar(0, $nueva, $id);
         if ($data == 1) {
             $res = array('tipo' => 'success', 'mensaje' => 'ARCHIVO ELIMINADO', 'fecha_eliminacion' => $nueva);
         } else {
             $res = array('tipo' => 'error', 'mensaje' => 'ERROR AL ELIMINAR');
         }
-    
         echo json_encode($res);
         die();
     }
@@ -146,8 +145,25 @@ class Archivos extends Controller
     public function listarHistorial()
     {
         $data = $this->model->getArchivos(0, $this->id_usuario );
+        for ($i=0; $i < count($data); $i++) { 
+           $data[$i]['accion'] = ' <a href="#" class = "btn btn-danger btn-sm" onclick = "restaurar('.$data[ $i ][ 'id' ].')">
+                        Restaurar
+                    </a>';
+        }
         echo json_encode($data, JSON_UNESCAPED_UNICODE);
         die();
 
+    } 
+
+    public function delete($id)
+    {
+        $data = $this->model->eliminar(1,null, $id);
+        if ($data == 1) {
+            $res = array('tipo' => 'success', 'mensaje' => 'ARCHIVO RESTAURADO');
+        } else {
+            $res = array('tipo' => 'error', 'mensaje' => 'ERROR AL RESTAURAR');
+        }
+        echo json_encode($res, JSON_UNESCAPED_UNICODE);
+        die();
     } 
 }

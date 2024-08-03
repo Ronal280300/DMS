@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
       dataSrc: "",
     },
     columns: [
+      { data: "accion" },
       { data: "id" },
       { data: "nombre" },
       { data: "tipo" },
@@ -24,12 +25,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-function eliminar(id) {
-  const url = base_url + "usuarios/delete/" + id;
+function restaurar(id) {
+  const url = base_url + "archivos/delete/" + id;
   eliminarRegistro(
-    "DESEA ELIMINAR EL USUARIO",
-    "EL USUARIO NO SE ELIMINARÁ DE FORMA PERMANETE",
-    "ELIMINAR",
+    "DESEA RESTAURAR EL ARCHIVO",
+    "EL ARCHIVO SE RESTAURARÁ EN SU RESPECTIVA CARPETA",
+    "RESTAURAR",
     url,
     tblArchivos
   );
