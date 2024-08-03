@@ -58,5 +58,12 @@ class UsuariosModel extends Query {
          WHERE correo = '$correo' AND estado = 1";
          return $this->select($sql);
      }
+
+     public function cambiarPass( $clave, $id )
+     {
+         $sql = "UPDATE usuarios SET clave =? WHERE id =?";
+         $datos = array( $clave, $id);
+         return $this->save( $sql, $datos );
+     }
 }
 ?>

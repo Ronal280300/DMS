@@ -104,7 +104,7 @@
                                     <div class="dropdown-menu dropdown-menu-end notifications-dropdown" aria-labelledby="notificationsDropDown">
                                         <h6 class="dropdown-header">Perfil</h6>
                                         <div class="notifications-dropdown-list">
-                                            <a href="#">
+                                            <a href="<?php echo BASE_URL . 'usuarios/profile'; ?>">
                                             <div class="notifications-dropdown-item">
                                                     <div class="notifications-dropdown-item-image">
                                                         <span class="notifications-badge">
@@ -116,7 +116,7 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                            <a href="<?php echo BASE_URL . 'principal/salir'; ?>">
+                                            <a href="<?php echo BASE_URL . 'usuarios/salir'; ?>">
                                                 <div class="notifications-dropdown-item">
                                                     <div class="notifications-dropdown-item-image">
                                                         <span class="notifications-badge">
