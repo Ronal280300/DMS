@@ -29,9 +29,9 @@ if ( file_exists( $dirControllers ) ) {
     if ( method_exists( $controller, $metodo ) ) {
         $controller->$metodo( $parametro );
     } else {
-        echo 'No existe el metodo';
+        header('Location: ' . BASE_URL . 'errors');
     }
 } else {
-    echo 'No existe el controlador';
+    header('Location: ' . BASE_URL . 'errors');
 }
 ?>
