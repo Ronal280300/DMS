@@ -4,11 +4,21 @@ class Admin extends Controller
  {
     private $id_usuario, $correo;
 
-    public function __construct() {
-        parent::__construct();
-        session_start();
-        $this->id_usuario = $_SESSION[ 'id' ];
-        $this->correo = $_SESSION[ 'correo' ];
+    public function __construct() 
+    {
+           parent::__construct();
+           session_start();
+   
+           // Verificar si las claves 'id' y 'correo' existen en $_SESSION
+           if ( isset( $_SESSION[ 'id' ] ) && isset( $_SESSION[ 'correo' ] ) ) {
+               $this->id_usuario = $_SESSION[ 'id' ];
+               $this->correo = $_SESSION[ 'correo' ];
+           } else {
+               // Redireccionar si las claves no existen
+               header( 'Location: ' . BASE_URL );
+               exit();
+    }
+       
 
         //ELIMINAR ARCHIVOS DE FORMA PERMANENTE
         $fecha = date('Y-m-d H:i:s');
