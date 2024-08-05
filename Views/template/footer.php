@@ -11,12 +11,13 @@
     <script>
         const base_url = '<?php echo BASE_URL; ?>';
     </script>
-    <script src="<?php echo BASE_URL . 'Assets/plugins/pace/pace.min.js'; ?>"></script>
+    <script src="<?php echo BASE_URL . 'Assets/plugins/pace/pace.min.js'; ?>"></script> 
     <script src="<?php echo BASE_URL . 'Assets/js/main.min.js'; ?>"></script>
     <script src="<?php echo BASE_URL . 'Assets/js/sweetalert2@11.js'; ?>"></script>
     <script src="<?php echo BASE_URL . 'Assets/js/select2.min.js'; ?>"></script>
     <script src="<?php echo BASE_URL . 'Assets/plugins/DataTables/datatables.min.js'; ?>"></script>
     <script src="<?php echo BASE_URL . 'Assets/js/custom.js'; ?>"></script>
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
 
 
    

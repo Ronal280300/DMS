@@ -1,3 +1,24 @@
+<div id="modalArchivos" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
+   <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" >Subir archivos</h5>
+            <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            </button>
+         </div>
+         <div class="modal-body">
+         <form id="upload-form" class="dropzone" action="<?php echo BASE_URL . 'admin/subirarchivo';?>">
+
+         </form>
+         </div>
+         <div class="moda-footer">
+         <button class="btn btn-primary" type="button" id="btnProcesar" >Cargar</button>
+         </div>
+      </div>
+   </div>
+</div>
+
+
 <div id="modalFile" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
    <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
