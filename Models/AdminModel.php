@@ -64,7 +64,7 @@ class AdminModel extends Query {
     public function getArchivosRecientes( $id_usuario )
     {
         $sql = "SELECT * FROM archivos WHERE id_usuario = $id_usuario 
-        AND estado = 1 ORDER BY id DESC LIMIT 10";
+        AND estado = 1 ORDER BY id DESC LIMIT 12";
         return $this->selectAll( $sql );
     }
 

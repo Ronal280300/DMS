@@ -2,7 +2,7 @@
 <div class="content-menu content-menu-right">
     <ul class="list-unstyled">
         <li>
-            <a href="<?php echo BASE_URL . 'archivos'; ?>" 
+            <a href="<?php echo BASE_URL . 'archivos/pagina'; ?>" 
                class="<?php echo ($data['active'] == 'todos') ? 'active' : ''; ?>">
                Todos los archivos
             </a>

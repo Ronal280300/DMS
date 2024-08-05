@@ -13,10 +13,17 @@ class ArchivosModel extends Query {
         return $this->selectAll( $sql );
     }
 
-    public function getCarpetas( $id_usuario )
+    public function getCarpetas($desde, $porPagina, $id_usuario )
     {
-        $sql = "SELECT * FROM carpetas WHERE id_usuario = $id_usuario AND estado = 1 ORDER BY id DESC";
+        $sql = "SELECT * FROM carpetas WHERE id_usuario = $id_usuario AND estado = 1 AND id != 1 ORDER BY id DESC LIMIT
+        $desde, $porPagina";
         return $this->selectAll( $sql );
+    }
+
+    public function getTotalCarpetas($id_usuario )
+    {
+        $sql = "SELECT COUNT(id) AS total FROM carpetas WHERE id_usuario = $id_usuario AND estado = 1 AND id != 1";
+        return $this->select( $sql );
     }
 
     public function getUsuarios($valor,$id_usuario)
