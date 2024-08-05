@@ -34,46 +34,25 @@
         </div>
         <div class="app-auth-container">
             <div class="logo">
-                <a href="#">Iniciar Sesión</a>
-            </div>
-            <p class="auth-description">Bienvenido al sistema de gestor de archivos.</p>
-
+                <a href="#"><?php echo $data['title'];?></a>
+            </div><br>
             <form id="formulario" autocomplete="off">
+                <input type="hidden" name="token" value="<?php echo $data['usuario']['token']?>">
                 <div class="auth-credentials m-b-xxl">
-                    <label for="correo" class="form-label">Correo electrónico <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control m-b-md" id="correo" name="correo" aria-describedby="correo" placeholder="example@example.com">
+                    <label for="correo" class="form-label">Contraseña nueva <span class="text-danger">*</span></label>
+                    <input type="password" class="form-control m-b-md" id="clave_nueva" name="clave_nueva"  placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
 
-                    <label for="clave" class="form-label">Contraseña <span class="text-danger">*</span></label>
-                    <input type="password" class="form-control" id="clave" name="clave" aria-describedby="clave" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
+                    <label for="clave" class="form-label">Confirmar contraseña <span class="text-danger">*</span></label>
+                    <input type="password" class="form-control" id="clave_confirmar" name="clave_confirmar" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
                 </div>
 
                 <div class="auth-submit">
-                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-                    <a href="#" class="auth-forgot-password float-end" id="reset">Olvidó su contraseña?</a>
+                    <button type="submit" class="btn btn-primary">Continuar</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Olvidaste tu contraseña</h5>
-                    <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="inputReset">Correo</label>
-                        <input id="inputReset" class="form-control" type="text" name="inputReset" placeholder="Correo electrónico">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="btnProcesar">Enviar</button>
-                </div>
-            </div>
-        </div>
-    </div>
     
     <!-- Javascripts -->
     <script src="<?php echo BASE_URL . 'Assets/plugins/jquery/jquery-3.5.1.min.js'; ?>"></script>
@@ -86,6 +65,6 @@
     <script>
         const base_url = '<?php echo BASE_URL;?>';
     </script>
-    <script src="<?php echo BASE_URL . 'Assets/js/pages/login.js'; ?>"></script>
+    <script src="<?php echo BASE_URL . 'Assets/js/pages/reset.js'; ?>"></script>
 </body>
 </html>

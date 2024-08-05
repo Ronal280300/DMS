@@ -146,7 +146,7 @@ class Usuarios extends Controller
     }
 
     public function cambiarPass()
- {
+    {
         $actual = $_POST[ 'clave_actual' ];
         $nueva = $_POST[ 'clave_nueva' ];
         $confirmar = $_POST[ 'clave_confirmar' ];
