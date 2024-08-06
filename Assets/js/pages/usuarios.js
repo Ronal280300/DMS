@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function eliminar(id) {
     const url = base_url + 'usuarios/delete/' + id;
-    eliminarRegistro('¿DESEA ELIMINAR EL ARCHIVO?', 'EL USUARIO NO SE ELIMINARÁ DE FORMA PERMANENTE', 'ELIMINAR', url, tblUsuarios)
+    eliminarRegistro('ESTA SEGURO DE ELIMINAR', 'EL USUARIO NO SE ELIMINARÁ DE FORMA PERMANENTE', 'ELIMINAR', url, tblUsuarios)
 }
 
 function editar(id) {

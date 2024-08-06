@@ -28,11 +28,12 @@ function verDetalle(id_detalle) {
                     <span class="mailbox-open-author-info-to">To <span class="badge badge-info align-self-center">${res.usuario}</span></span>
                 </div>
                 <div class="mailbox-open-actions">
-                    <a href="#" class="btn btn-danger" onclick="eliminarCompartido(${res.id})">Delete</a>
+                    <a href="#" class="btn btn-danger" onclick="eliminarCompartido(${res.id})">Eliminar</a>
                 </div>
             </div>
             <div class="mailbox-open-content-email">
-                <p>Descripcion</p>
+                <p style="font-family: Arial, sans-serif; font-size: 16px; color: #333; background-color: #f9f9f9; border: 1px solid #ddd; padding: 10px; border-radius: 5px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); margin: 10px 0; ">
+    <strong style="color: #007BFF;">Revisión necesaria:</strong> Documento adjunto. El archivo contienen información que requiere su atención y revisión. Por favor, valide los detalles.</p>
                 <div class="mailbox-open-content-email-attachments">
                     <ul class="attachments-files-list list-unstyled">
                         <li class="attachments-files-list-item">

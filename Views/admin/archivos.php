@@ -22,7 +22,7 @@
                                     <i class="material-icons-outlined text-danger align-middle m-r-sm">description</i>
                                     <a href="#" class="file-manager-recent-item-title flex-fill"><?php echo $archivo['nombre']; ?></a>
                                     <span class="p-h-sm"></span>
-                                    <span class="p-h-sm text-muted">09.14.21</span>
+                                    <span class="p-h-sm text-muted"><?php echo $archivo['fecha_create']; ?></span>
                                     <a href="#" class="dropdown-toggle file-manager-recent-file-actions" id="file-manager-recent-<?php echo $archivo['id']; ?>" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="file-manager-recent-<?php echo $archivo['id']; ?>">
                                         <li><a class="dropdown-item compartir" href="#" id="<?php echo $archivo['id']; ?>">Compartir</a></li>

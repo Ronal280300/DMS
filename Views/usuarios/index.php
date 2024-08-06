@@ -37,7 +37,7 @@
 </div>
 
 <div id="modalRegistro" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="title"></h5>
@@ -133,7 +133,7 @@
                 <div class="modal-footer">
                     <button class="btn btn-outline-primary" type="submit">
                         <i class="material-icons">
-                            save
+                        person_add
                         </i> Guardar
                     </button>
                     <button class="btn btn-outline-danger" type="button" data-bs-dismiss="modal">
