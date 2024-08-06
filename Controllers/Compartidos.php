@@ -1,33 +1,27 @@
 <?php
-
 class Compartidos extends Controller
- {
-    private $id_usuario,$correo;
-
-    public function __construct() 
- {
+{
+    private $id_usuario, $correo;
+    public function __construct()
+    {
         parent::__construct();
         session_start();
-
-        // Verificar si las claves 'id' y 'correo' existen en $_SESSION
-        if ( isset( $_SESSION[ 'id' ] ) && isset( $_SESSION[ 'correo' ] ) ) {
-            $this->id_usuario = $_SESSION[ 'id' ];
-            $this->correo = $_SESSION[ 'correo' ];
-        } else {
-            // Redireccionar si las claves no existen
-            header( 'Location: ' . BASE_URL );
-            exit();
+        $this->id_usuario = $_SESSION['id'];
+        $this->correo = $_SESSION['correo'];
+        ## VALIDAR SESION
+        if (empty($_SESSION['id'])) {
+            header('Location: ' . BASE_URL);
+            exit;
         }
     }
-
     public function index()
- {
-        $data[ 'title' ] = 'Archivos Compartidos';
+    {
+        $data['title'] = 'Archivos compartidos';
         $data['script'] = 'compartidos.js';
-        $data[ 'menu' ] = 'share';
+        $data['menu'] = 'share';
         $data['archivos'] = $this->model->getArchivosCompartidos($this->correo);
         $data['shares'] = $this->model->verificarEstado($this->correo);
-        $this->views->getView( 'admin', 'compartidos', $data );
+        $this->views->getView('admin', 'compartidos', $data);
     }
 
     public function verDetalle($id_detalle)
@@ -51,8 +45,5 @@ class Compartidos extends Controller
         }
         echo json_encode($res, JSON_UNESCAPED_UNICODE);
         die();
-        
     }
-    
 }
-

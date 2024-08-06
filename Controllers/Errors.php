@@ -5,15 +5,9 @@ class Errors extends Controller
         parent::__construct();
         session_start();
     }
-    public function index(){
-        $data['title'] = 'Página no encontrada';
-        $this->views->getView('principal', 'errors',$data);
-    } 
-
-    public function salir()
+    public function index()
     {
-        session_destroy();
-        header('Location: ' . BASE_URL);
+        $data['title'] = 'Pagina no encontrada';
+        $this->views->getView('principal', 'errors', $data);
     }
 }
-

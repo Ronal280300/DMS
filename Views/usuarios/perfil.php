@@ -1,62 +1,65 @@
-<?php include_once 'Views/template/header.php' ?>
+<?php include_once 'Views/template/header.php'; ?>
+
+
 <div class="container">
     <div class="row">
         <div class="col">
             <div class="page-description page-description-tabbed">
-                <h1>
-                    <?php echo $data['title']; ?>
-                    <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="account-tab" data-bs-toggle="tab" data-bs-target="#account" type="button" role="tab" aria-controls="account" aria-selected="true">Datos</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="security-tab" data-bs-toggle="tab" data-bs-target="#security" type="button" role="tab" aria-controls="security" aria-selected="false">Credenciales</button>
-                        </li>
-                    </ul>
-                </h1>
+                <h1><?php echo $data['title']; ?></h1>
+
+                <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="account-tab" data-bs-toggle="tab" data-bs-target="#account" type="button" role="tab" aria-controls="hoaccountme" aria-selected="true">Tu datos</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="security-tab" data-bs-toggle="tab" data-bs-target="#security" type="button" role="tab" aria-controls="security" aria-selected="false">Credenciales</button>
+                    </li>
+                </ul>
             </div>
         </div>
+
     </div>
+
     <div class="row">
         <div class="col">
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
                     <form id="frmProfile" autocomplete="off">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="correo" class="form-label">Correo electrónico</label>
-                                    <input type="email" class="form-control" id="correo" name="correo" placeholder="example@neptune.com" value="<?php echo $data['usuario']['correo']; ?>">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="correo" class="form-label">Correo eléctronico</label>
+                                        <input type="email" class="form-control" id="correo" name="correo" placeholder="example@neptune.com" value="<?php echo $data['usuario']['correo']; ?>">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="telefono" class="form-label">Teléfono</label>
+                                        <input type="text" class="form-control" id="telefono" name="telefono" placeholder="(xxx) xxx-xxxx" value="<?php echo $data['usuario']['telefono']; ?>">
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="telefono" class="form-label">Teléfono</label>
-                                    <input type="text" class="form-control" id="telefono" name="telefono" placeholder="(xxx) xxx-xxxx" value="<?php echo $data['usuario']['telefono']; ?>">
+                                <div class="row m-t-lg">
+                                    <div class="col-md-6">
+                                        <label for="nombre" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="John" value="<?php echo $data['usuario']['nombre']; ?>">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="apellido" class="form-label">Apellido</label>
+                                        <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Doe" value="<?php echo $data['usuario']['apellido']; ?>">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row m-t-lg">
-                                <div class="col-md-6">
-                                    <label for="nombre" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="John" value="<?php echo $data['usuario']['nombre']; ?>">
+                                <div class="row m-t-lg">
+                                    <div class="col">
+                                        <label for="dieccion" class="form-label">Dirección</label>
+                                        <textarea class="form-control" id="direccion" name="direccion" maxlength="500" rows="4"><?php echo $data['usuario']['direccion']; ?></textarea>
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="apellido" class="form-label">Apellidos</label>
-                                    <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Doe" value="<?php echo $data['usuario']['apellido']; ?>">
-                                </div>
-                            </div>
-                            <div class="row m-t-lg">
-                                <div class="col-md-12">
-                                    <label for="direccion" class="form-label">Dirección</label>
-                                    <textarea class="form-control" id="direccion" name="direccion" maxlength="500" rows="4"><?php echo $data['usuario']['direccion']; ?></textarea>
-                                </div>
-                            </div>
-                            <div class="row m-t-lg">
-                                <div class="col">
-                                    <button type="submit" class="btn btn-primary m-t-sm">Actualizar</button>
+                                <div class="row m-t-lg">
+                                    <div class="col">
+                                        <button type="submit" class="btn btn-primary m-t-sm">Actualizar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </form>
                 </div>
                 <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
@@ -77,13 +80,13 @@
                                 </div>
                                 <div class="row m-t-xxl">
                                     <div class="col-md-6">
-                                        <label for="settingsConfirmPassword" class="form-label">Confirmar contraseña</label>
-                                        <input type="password" id="clave_confirmar" name="clave_confirmar" class="form-control" placeholder="Confirmar contraseña">
+                                        <label for="settingsConfirmPassword" class="form-label">Confirm Password</label>
+                                        <input type="password" id="clave_confirmar" name="clave_confirmar" class="form-control" placeholder="Confirmar Contraseña">
                                     </div>
                                 </div>
                                 <div class="row m-t-lg">
                                     <div class="col">
-                                        <button type="submit" class="btn btn-primary m-t-sm">Cambiar contraseña</button>
+                                        <button type="submit" class="btn btn-primary m-t-sm">Continuar</button>
                                     </div>
                                 </div>
                             </div>
@@ -94,4 +97,5 @@
         </div>
     </div>
 </div>
-<?php include_once 'Views/template/footer.php' ?>
+
+<?php include_once 'Views/template/footer.php'; ?>

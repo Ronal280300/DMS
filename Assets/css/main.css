@@ -10,7 +10,7 @@
 7. Plugins
 8. Apps
 9. Responsive
- 
+
 ------------------------------------------------------------*/
 
 /*------------------------------------------------------------
@@ -5199,36 +5199,6 @@ body.modal-open {
 
 .invalid-tooltip {
     background-color: rgba(255, 72, 87, .9);
-}
-
-/* Dropzone */
-
-.dropzone {
-    border-radius: 10px;
-    background: #f4f7fa;
-    border: 2px solid #e3e6ea;
-}
-
-.dropzone .dz-preview {
-    background-color: transparent;
-}
-
-.dropzone .dz-preview .dz-image {
-    border-radius: 10px;
-}
-
-.dropzone .dz-preview .dz-details {
-    border-radius: 10px;
-    background: #e3e6ea;
-    bottom: 0;
-}
-
-.dropzone .dz-preview .dz-error-message {
-    background: #ff4857;
-}
-
-.dropzone .dz-preview .dz-error-message:after {
-    border-bottom-color: #ff4857;
 }
 
 /* SummerNote */
