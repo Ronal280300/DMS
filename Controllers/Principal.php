@@ -140,7 +140,7 @@ class Principal extends Controller
                     <body>
                         <div class="container">
                             <div class="header">
-                                <h2>Restablecer contraseña</h2>
+                                <h2>Restablece tu contraseña</h2>
                             </div>
                             <div class="content">
                                 <p>¡Haz solicitado reestablecer tú contraseña!<br>

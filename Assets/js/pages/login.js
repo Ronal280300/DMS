@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         Swal.fire({
                             title: res.mensaje,
                             html: 'Será redireccionado en <b></b> millisegundos',
-                            timer: 2000,
+                            timer: 1500,
                             timerProgressBar: true,
                             didOpen: () => {
                                 Swal.showLoading()
