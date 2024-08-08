@@ -1,7 +1,7 @@
 <?php include_once 'Views/template/header.php'; ?>
 
 <div class="app-content">
-<?php include_once 'Views/components/menus.php'; ?>
+    <?php include_once 'Views/components/menus.php'; ?>
     <div class="content-wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -52,7 +52,7 @@
                                         <li><a class="dropdown-item" href="<?php echo BASE_URL . 'Assets/archivos/' . $archivo['id_carpeta'] . '/' . $archivo['nombre']; ?>" download="<?php echo $archivo['nombre']; ?>">Descargar</a></li>
                                         <li><a class="dropdown-item eliminar" href="#" data-id="<?php echo $archivo['id']; ?>">Eliminar</a></li>
 
-                                        
+
                                     </ul>
                                 </div>
                             </div>
@@ -64,8 +64,19 @@
         </div>
     </div>
 </div>
+<script src="<?php echo BASE_URL . 'Assets/js/alertas.js'; ?>"></script>
+<script>
+   
+        document.addEventListener('DOMContentLoaded', function() {
+            var sessionMessage = "<?php echo isset($_SESSION['rol']) ? $_SESSION['rol'] : ''; ?>";
+            if (sessionMessage) {
+                alertaRol();
+                <?php unset($_SESSION['rol']); ?>
+            }
+        });
+    </script>
 
-<?php 
-include_once 'Views/components/modal.php'; 
-include_once 'Views/template/footer.php'; 
+<?php
+include_once 'Views/components/modal.php';
+include_once 'Views/template/footer.php';
 ?>

@@ -133,7 +133,7 @@
                 <div class="modal-footer">
                     <button class="btn btn-outline-primary" type="submit">
                         <i class="material-icons">
-                        person_add
+                            person_add
                         </i> Guardar
                     </button>
                     <button class="btn btn-outline-danger" type="button" data-bs-dismiss="modal">

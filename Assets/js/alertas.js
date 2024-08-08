@@ -7,3 +7,12 @@ function alertaPerzonalizada(type, mensaje) {
         timer: 1500
     })
 }
+
+function alertaRol() {
+    Swal.fire({
+        icon: "warning",
+        title: 'Acceso Denegado',
+        text: "No cuenta con permisos para ingresar a este módulo",
+        confirmButtonText: 'Aceptar'
+    });
+}

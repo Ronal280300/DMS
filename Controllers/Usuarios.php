@@ -1,7 +1,7 @@
 <?php
 class Usuarios extends Controller
 {
-    private $id_usuario, $correo;
+    private $id_usuario, $correo, $rol;
     public function __construct()
     {
         parent::__construct();
@@ -19,8 +19,28 @@ class Usuarios extends Controller
         $data['title'] = 'Gestión de usuarios';
         $data['script'] = 'usuarios.js';
         $data['menu'] = 'usuarios';
+        $no_permite = $this->validarRol();
+        if(!$no_permite){
+            $_SESSION['rol'] = 'Acceso denegado, no tienes privilegios para ingresar a este módulo';
+            $this->redirect(BASE_URL . 'admin');
+        }
         $data['shares'] = $this->model->verificarEstado($this->correo);
         $this->views->getView('usuarios', 'index', $data);
+    }
+    public function validarRol()
+    {
+        $usuario = $this->model->getUsuario($this->id_usuario);
+        if (!empty($usuario)) {
+            if ($usuario['rol'] == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+    public function redirect($url)
+    {
+        header('Location: ' . $url);
     }
 
     public function listar()
