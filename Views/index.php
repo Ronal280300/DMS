@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-primary" type="button" id="btnProcesar">Procesar</button>
+                    <button class="btn btn-primary" type="button" id="btnProcesar">Enviar</button>
                 </div>
             </div>
         </div>

@@ -112,11 +112,11 @@
                                     <ul class="dropdown-menu dropdown-menu-end language-dropdown" aria-labelledby="languageDropDown">
                                         <li><a class="dropdown-item" href="<?php echo BASE_URL . 'usuarios/profile'; ?>">
                                                 <i class="material-icons">
-                                                    account_circle
+                                                    person
                                                 </i> Perfil</a>
                                         </li>
                                         <li><a class="dropdown-item" href="<?php echo BASE_URL . 'usuarios/salir'; ?>"><i class="material-icons">
-                                                    power_settings_new
+                                                    logout
                                                 </i> Salir</a></li>
                                     </ul>
                                 </li>

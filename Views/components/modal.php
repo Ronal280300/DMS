@@ -12,14 +12,14 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" type="button" id="btnProcesar">Procesar</button>
+                <button class="btn btn-primary" type="button" id="btnProcesar">Cargar</button>
             </div>
         </div>
     </div>
 </div>
 
 <div id="modalFile" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
-    <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="title">Gestión</h5>
@@ -40,7 +40,7 @@
 </div>
 
 <div id="modalCarpeta" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
-    <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="title-carpeta">Nueva carpeta</h5>

@@ -24,8 +24,8 @@ function verDetalle(id_detalle) {
             <div class="mailbox-open-author">
                 <img src="${ base_url + 'Assets/images/logo.png'}" alt="">
                 <div class="mailbox-open-author-info">
-                    <span class="mailbox-open-author-info-email d-block">${res.compartido}</span>
-                    <span class="mailbox-open-author-info-to">To <span class="badge badge-info align-self-center">${res.usuario}</span></span>
+                    <span class="mailbox-open-author-info-email d-block"> ${res.compartido}</span>
+                    <span class="mailbox-open-author-info-to"><span class="badge badge-info align-self-center">${res.fecha_add}</span></span>
                 </div>
                 <div class="mailbox-open-actions">
                     <a href="#" class="btn btn-danger" onclick="eliminarCompartido(${res.id})">Eliminar</a>

@@ -27,13 +27,13 @@ class Principal extends Controller
                 $_SESSION ['id'] = $data['id'];
                 $_SESSION ['correo'] = $data['correo'];
                 $_SESSION ['nombre'] = $data['nombre'];
-                $res = array('tipo' => 'success', 'mensaje' => 'Bienvenido al DMS');
+                $res = array('tipo' => 'success', 'mensaje' => 'BIENVENIDO AL DMS');
             } else {
-               $res = array('tipo' => 'warning', 'mensaje' => 'Contraseña incorrecta');
+               $res = array('tipo' => 'warning', 'mensaje' => 'CONTRASEÑA INCORRECTA');
             }
             
         } else {
-            $res = array('tipo' => 'warning', 'mensaje' => 'El correo no existe');
+            $res = array('tipo' => 'warning', 'mensaje' => 'EL CORREO NO EXISTE');
         }
         
         echo json_encode($res, JSON_UNESCAPED_UNICODE);
@@ -74,7 +74,7 @@ class Principal extends Controller
     
                 //Content
                 $mail->isHTML(true); //Set email format to HTML
-                $mail->Subject = 'Restablecer contraseña';
+                $mail->Subject = 'Restablecer Clave';
     
                 $mail->Body = '
                     <html>
@@ -159,7 +159,7 @@ class Principal extends Controller
                 ';
     
                 $mail->send();
-                $res = array( 'tipo' =>'success', 'mensaje' => 'CORREO ENVIADO CON TOKEN DE SEGURIDAD' );
+                $res = array( 'tipo' =>'success', 'mensaje' => 'CORREO ENVIADO' );
             } catch (Exception $e) {
                 $res = array( 'tipo' =>'error', 'mensaje' => $mail->ErrorInfo );
             }

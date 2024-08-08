@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     frm.addEventListener('submit', function (e) {
         e.preventDefault();
         if (correo.value == '' || clave.value == '') {
-            alertaPerzonalizada('warning', 'Todo los campos con * son requeridos');
+            alertaPerzonalizada('warning', 'TODOS LOS CAMPOS SON REQUERIDOS');
         } else {
             const data = new FormData(frm);
             const http = new XMLHttpRequest();
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         let timerInterval
                         Swal.fire({
                             title: res.mensaje,
-                            html: 'Sera redirecionado en <b></b> milliseconds.',
+                            html: 'Será redireccionado en <b></b> millisegundos',
                             timer: 2000,
                             timerProgressBar: true,
                             didOpen: () => {
