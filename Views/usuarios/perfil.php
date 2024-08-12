@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="row m-t-xxl">
                                     <div class="col-md-6">
-                                        <label for="settingsConfirmPassword" class="form-label">Confirm Password</label>
+                                        <label for="settingsConfirmPassword" class="form-label">Confirmar Contraseña</label>
                                         <input type="password" id="clave_confirmar" name="clave_confirmar" class="form-control" placeholder="Confirmar Contraseña">
                                     </div>
                                 </div>

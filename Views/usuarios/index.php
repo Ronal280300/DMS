@@ -60,7 +60,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="apellido">Apellido</label>
+                            <label for="apellido">Apellidos</label>
                             <div class="input-group">
                                 <span class="input-group-text">
                                     <i class="material-icons">
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="correo">Correo</label>
+                            <label for="correo">Correo eléctronico</label>
                             <div class="input-group">
                                 <span class="input-group-text">
                                     <i class="material-icons">
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="telefono">Telefono</label>
+                            <label for="telefono">Teléfono</label>
                             <div class="input-group">
                                 <span class="input-group-text">
                                     <i class="material-icons">
@@ -93,7 +93,7 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <label for="direccion">Direccion</label>
+                            <label for="direccion">Dirección</label>
                             <div class="input-group">
                                 <span class="input-group-text">
                                     <i class="material-icons">
@@ -104,7 +104,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="clave">Clave</label>
+                            <label for="clave">Contraseña</label>
                             <div class="input-group">
                                 <span class="input-group-text">
                                     <i class="material-icons">

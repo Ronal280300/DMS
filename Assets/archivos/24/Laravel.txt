@@ -1,0 +1,4 @@
+
+php artisan storage:link -> genera link a la carpeta storage del proyecto
+
+php artisan serve -> genera el link del proyecto

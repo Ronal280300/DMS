@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-08-2024 a las 07:46:05
+-- Tiempo de generación: 12-08-2024 a las 07:00:51
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -43,7 +43,7 @@ CREATE TABLE `archivos` (
 --
 
 INSERT INTO `archivos` (`id`, `nombre`, `tipo`, `fecha_create`, `estado`, `elimina`, `id_carpeta`, `id_usuario`) VALUES
-(1, 'Soda La 33.png', 'image/png', '2024-08-12 05:37:55', 1, NULL, 1, 1),
+(1, 'Soda La 33.png', 'image/png', '2024-08-08 05:59:04', 1, NULL, 1, 1),
 (2, 'Soda La 33 (1).png', 'image/png', '2024-08-06 14:17:26', 1, NULL, 1, 20),
 (3, 'Soda La 33.png', 'image/png', '2024-08-06 14:17:26', 1, NULL, 1, 20),
 (4, 'db.sql', 'application/octet-stream', '2024-08-06 14:17:26', 1, NULL, 1, 20),
@@ -59,14 +59,14 @@ INSERT INTO `archivos` (`id`, `nombre`, `tipo`, `fecha_create`, `estado`, `elimi
 (14, 'Soda La 33.png', 'image/png', '2024-08-06 15:50:13', 1, NULL, 4, 20),
 (15, 'db.sql', 'application/octet-stream', '2024-08-06 15:50:13', 1, NULL, 4, 20),
 (16, 'music_ai_2024-8-4.wav', 'audio/wav', '2024-08-06 15:50:13', 1, NULL, 4, 20),
-(17, 'gestion_archivos (2) (1).sql', 'application/octet-stream', '2024-08-12 05:15:06', 0, '2024-09-12 00:15:06', 4, 20),
+(17, 'gestion_archivos (2) (1).sql', 'application/octet-stream', '2024-08-06 15:50:13', 1, NULL, 4, 20),
 (18, '66281ae83b9cf51122177fb9_sinpe.png', 'image/png', '2024-08-06 15:50:13', 1, NULL, 4, 20),
 (19, 'Almuerzos Suscripción Quincenal - 10 Comidas.png', 'image/png', '2024-08-06 15:50:13', 1, NULL, 4, 20),
 (20, 'plato-arroz-pollo-receta-facil-economica-almuerzo.jpg', 'image/jpeg', '2024-08-06 15:50:13', 1, NULL, 4, 20),
 (21, 'classic-cheese-pizza-FT-RECIPE0422-31a2c938fc2546c9a07b7011658cfd05.jpg', 'image/jpeg', '2024-08-06 15:50:13', 1, NULL, 4, 20),
 (22, 'Anexos_Ejemplo.docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', '2024-08-06 15:50:13', 1, NULL, 4, 20),
-(23, 'Soda La 33 (3).png', 'image/png', '2024-08-12 05:37:58', 1, NULL, 21, 1),
-(24, 'Kick off_RonaldoSegura (1).pptx', 'application/vnd.openxmlformats-officedocument.presentationml.presentation', '2024-08-12 05:37:49', 1, NULL, 1, 1),
+(23, 'Soda La 33 (3).png', 'image/png', '2024-08-06 15:52:42', 1, NULL, 21, 1),
+(24, 'Kick off_RonaldoSegura (1).pptx', 'application/vnd.openxmlformats-officedocument.presentationml.presentation', '2024-08-08 00:23:10', 1, NULL, 1, 1),
 (25, '12699172_Office workers organizing data storage.svg', 'image/svg+xml', '2024-08-08 05:51:10', 1, NULL, 1, 30),
 (26, 'digital-personal-files-concept-illustration.zip', 'application/x-zip-compressed', '2024-08-08 05:51:10', 1, NULL, 1, 30),
 (27, '12977774_5130167.svg', 'image/svg+xml', '2024-08-08 05:51:10', 1, NULL, 1, 30),
@@ -80,9 +80,7 @@ INSERT INTO `archivos` (`id`, `nombre`, `tipo`, `fecha_create`, `estado`, `elimi
 (35, 'Safewor-removebg-preview.png', 'image/png', '2024-08-08 05:51:40', 1, NULL, 23, 30),
 (36, 'Safewor.png', 'image/png', '2024-08-08 05:51:40', 1, NULL, 23, 30),
 (37, 'PROJECT CHARTER.pdf', 'application/pdf', '2024-08-08 05:51:40', 1, NULL, 23, 30),
-(38, '2024-05-21 Presentacion PMO SISAP DIA 2.pptx', 'application/vnd.openxmlformats-officedocument.presentationml.presentation', '2024-08-08 06:02:29', 0, '2024-09-08 01:02:29', 23, 30),
-(39, 'Laravel.txt', 'text/plain', '2024-08-12 05:15:34', 1, NULL, 24, 20),
-(40, 'gestion_archivos.sql', 'application/octet-stream', '2024-08-12 05:37:51', 1, NULL, 1, 1);
+(38, '2024-05-21 Presentacion PMO SISAP DIA 2.pptx', 'application/vnd.openxmlformats-officedocument.presentationml.presentation', '2024-08-08 06:02:29', 0, '2024-09-08 01:02:29', 23, 30);
 
 -- --------------------------------------------------------
 
@@ -125,8 +123,7 @@ INSERT INTO `carpetas` (`id`, `nombre`, `fecha_create`, `estado`, `id_usuario`) 
 (20, 'Prueba 16', '2024-08-05 02:10:51', 1, 1),
 (21, 'Prueba 17', '2024-08-05 02:10:58', 1, 1),
 (22, 'Proyecto 01 Sabanilla río grande', '2024-08-05 03:39:16', 1, 1),
-(23, 'Proyecto 1004 Barranca', '2024-08-08 05:51:27', 1, 30),
-(24, 'Carpeta', '2024-08-12 05:14:56', 1, 20);
+(23, 'Proyecto 1004 Barranca', '2024-08-08 05:51:27', 1, 30);
 
 -- --------------------------------------------------------
 
@@ -171,8 +168,7 @@ INSERT INTO `detalle_archivos` (`id`, `fecha_add`, `correo`, `estado`, `elimina`
 (20, '2024-08-08 05:52:39', 'rosepa2803@gmail.com', 2, NULL, 32, 30),
 (21, '2024-08-08 05:52:39', 'rosepa2803@gmail.com', 2, NULL, 33, 30),
 (22, '2024-08-08 05:52:40', 'rosepa2803@gmail.com', 2, NULL, 34, 30),
-(23, '2024-08-08 05:58:41', 'rosepa2803@gmail.com', 0, NULL, 36, 30),
-(24, '2024-08-12 05:31:47', 'rosepa2803@gmail.com', 2, NULL, 39, 20);
+(23, '2024-08-08 05:58:41', 'rosepa2803@gmail.com', 0, NULL, 36, 30);
 
 -- --------------------------------------------------------
 
@@ -201,7 +197,7 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `correo`, `telefono`, `direccion`, `perfil`, `clave`, `token`, `fecha`, `estado`, `rol`) VALUES
 (1, 'Ronaldo', 'Segura', 'rosepa2803@gmail.com', '85307943', 'San Juan, Grecia, Alajuela', NULL, '$2y$10$4cuMA7C.Yt5kiYfNEDJtZOvsOAuyCP1buvJ0vv0PrNCj9R89oCthC', NULL, '2024-08-08 06:32:11', 1, 1),
-(20, 'Priscilla', 'Leiva Ramírez', 'prileiva@gmail.com', '85471457', 'San Miguel, Palmares, Alajuela', NULL, '$2y$10$qkiJuWPSnP8s/I7MO4riv.uEdsQLVPRKR88LClaem/E1h16Q0N5HG', NULL, '2024-08-12 05:13:55', 1, 2),
+(20, 'Priscilla', 'Leiva Ramírez', 'prileiva@gmail.com', '85471457', 'San Miguel, Palmares, Alajuela', NULL, '$2y$10$qkiJuWPSnP8s/I7MO4riv.uEdsQLVPRKR88LClaem/E1h16Q0N5HG', NULL, '2024-08-08 06:18:46', 1, 1),
 (25, 'Alejandra', 'Segura Paniagua', 'alejandra@gmail.com', '88017576', 'San Juan, Grecia, Alajuela', NULL, '$2y$10$bwKBXylE/EyUq9TDvTGb6.yMxFWwEgJwTuc5PKRf3tfKL2lxGJ00a', NULL, '2024-08-08 06:18:19', 1, 1),
 (28, 'Ronaldo', 'Segura Paniagua', 'rosepa28@hotmail.com', '85307942', 'San Juan, Grecia, Alajuela', NULL, '$2y$10$oSKiTo54gtBd9IIf/djRoeetst5ntf/9OQ6e.I08HzCa9/CP/7jsy', NULL, '2024-08-08 06:31:01', 1, 1),
 (30, 'Alex', 'Perez Campos', 'alexperez@gmail.com', '85858585', 'Los Ángeles, Grecia, Alajuela', NULL, '$2y$10$jX3T3e.UaMe15kcHVPVKXeEOOuXf6ho/CxtFz9LSHFhbEJccEIobG', NULL, '2024-08-09 18:05:36', 1, 1),
@@ -250,19 +246,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `archivos`
 --
 ALTER TABLE `archivos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `carpetas`
 --
 ALTER TABLE `carpetas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_archivos`
 --
 ALTER TABLE `detalle_archivos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

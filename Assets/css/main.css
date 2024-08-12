@@ -6844,3 +6844,11 @@ span.flatpickr-weekday {
   
 
 
+.mt-auto {
+    margin-top: auto;
+    margin-bottom: 20px; /* Ajusta este valor para empujar más hacia abajo */
+}
+
+.app-menu {
+    flex-grow: 2; /* Aumenta este valor para darle más espacio */
+}

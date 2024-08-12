@@ -12,7 +12,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" type="button" id="btnProcesar">Cargar</button>
+                <button class="btn btn-primary" type="button" id="btnProcesar">Subir</button>
             </div>
         </div>
     </div>
