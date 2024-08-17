@@ -17,7 +17,7 @@ function verDetalle(id_detalle) {
         if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText);
             const res = JSON.parse(this.responseText);
-            let html = `<span class="mailbox-open-date">${res.fecha}</span>
+            let html = `<span class="mailbox-open-date">${res.usuario}</span>
             <h5 class="mailbox-open-title">
             ${res.nombre}
             </h5>
