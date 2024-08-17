@@ -25,7 +25,7 @@
                                 <i class="material-icons" style="color: #<?php echo $carpeta['color']; ?>;">folder</i>
                                 <div class="file-manager-group-info flex-fill">
                                     <a href="#" id="<?php echo $carpeta['id']; ?>" class="file-manager-group-title carpetas"><?php echo $carpeta['nombre']; ?></a>
-                                    <span class="file-manager-group-about"><?php echo $carpeta['fecha']; ?></span>
+                                    <span class="file-manager-group-about"><?php echo $carpeta['fecha_create']; ?></span>
                                 </div>
                             </div>
                         </div>
