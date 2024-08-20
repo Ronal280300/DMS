@@ -5,12 +5,16 @@
     <div class="content-wrapper">
         <div class="container-fluid">
             <div class="row">
-                <div class="col">
+                <div class="col d-flex justify-content-between align-items-center">
                     <div class="page-description d-flex align-items-center">
                         <div class="page-description-content flex-grow-1">
                             <h1><?php echo $data['carpeta']['nombre']; ?></h1>
                         </div>
                     </div>
+                    <!-- Botón Cargar Archivos -->
+                    <button type="button" id="btnSubirArchivo" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalArchivos">
+                        <i class="material-icons">upload_file</i> Cargar Archivos
+                    </button>
                 </div>
             </div>
             <div class="row">
