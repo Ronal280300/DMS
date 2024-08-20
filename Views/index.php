@@ -7,8 +7,7 @@
       <meta name="description" content="Responsive Admin Dashboard Template">
       <meta name="keywords" content="admin,dashboard">
       <meta name="author" content="stacks">
-      <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-      <!-- Title -->
+
       <title><?php echo $data['title']; ?></title>
       <!-- Styles -->
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -21,12 +20,7 @@
       <link href="<?php echo BASE_URL . 'Assets/css/main.min.css'; ?>" rel="stylesheet">
       <link href="<?php echo BASE_URL . 'Assets/css/custom.css'; ?>" rel="stylesheet">
       <link rel="shortcut icon" type="image/x-icon" href="<?php echo BASE_URL . 'Assets/images/favicon.ico'; ?>">
-      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-      <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-      <![endif]-->
+
    </head>
    <body>
       <div class="app app-auth-sign-in align-content-stretch d-flex flex-wrap justify-content-end">
