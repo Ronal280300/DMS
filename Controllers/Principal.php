@@ -76,6 +76,8 @@ class Principal extends Controller
                 $mail->isHTML(true); //Set email format to HTML
                 $mail->Subject = 'Restablecer Clave';
     
+                $mail->isHTML(true); // Asegura que el correo se envíe como HTML
+                $mail->CharSet = 'UTF-8'; // Establece la codificación a UTF-8
                 $mail->Body = '
                     <html>
                     <head>
@@ -143,8 +145,8 @@ class Principal extends Controller
                                 <h2>Restablece tu contraseña</h2>
                             </div>
                             <div class="content">
-                                <p>¡Haz solicitado reestablecer tú contraseña!<br>
-                                Si no ha sido tú, omite este mensaje.</p>
+                                <p>¡Has solicitado restablecer tu contraseña!<br>
+                                Si no has sido tú, omite este mensaje.</p>
                                 <p>
                                     <a href="'. BASE_URL . 'principal/reset/'.$token.'">Haz click aquí para cambiar</a>
                                 </p>
@@ -157,6 +159,7 @@ class Principal extends Controller
                     </body>
                     </html>
                 ';
+                
     
                 $mail->send();
                 $res = array( 'tipo' =>'success', 'mensaje' => 'CORREO ENVIADO' );
